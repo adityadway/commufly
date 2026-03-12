@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.footer-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grain effect local to the footer */
+.footer-container::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -10rem;
+    width: calc(100% + 20rem);
+    height: calc(100% + 20rem);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 2;
+    animation: noise 1s steps(2) infinite;
+}
+
+/* Second row: red + yellow */
+.footer-row-2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+.footer-col-left-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 5vw;
+    gap: 1.5rem;
+}
+
+/* Row 1: Heading w/ underline */
+.footer-form-heading-row {
+    border-bottom: 2px solid white;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.footer-form-heading {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0em;
+    margin: 0;
+}
+
+/* Common form input style (similar to footer-nav-link) */
+.footer-form-input {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.2rem 0;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.footer-form-input::placeholder {
+    color: #717171;
+}
+
+.footer-form-input:focus {
+    border-color: #4ED7F1;
+}
+
+/* Phone row */
+.footer-form-phone-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+/* Custom Country Dropdown */
+.footer-country-dropdown {
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.2rem 0;
+    cursor: pointer;
+    min-width: 90px;
+    user-select: none;
+}
+
+.footer-country-trigger {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-country-code {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 1.8rem;
+    color: #717171;
+}
+
+.footer-country-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.footer-country-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    max-height: 200px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin-top: 4px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbar styling for the dark menu */
+.footer-country-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.footer-country-menu::-webkit-scrollbar-thumb {
+    background: #4ED7F1;
+    border-radius: 4px;
+}
+
+.footer-country-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.footer-country-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-country-code-list {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 1.6rem;
+    color: white;
+    min-width: 40px;
+}
+
+.footer-country-name {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 1.6rem;
+    color: #717171;
+}
+
+.footer-flag-icon {
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.footer-form-phone-input {
+    flex: 1;
+}
+
+/* Service dropdown */
+.footer-form-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.footer-form-select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    color: #717171;
+    width: 100%;
+}
+
+.footer-form-select-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    /* lets clicks pass through to the select */
+}
+
+.footer-form-select option {
+    background: black;
+    color: white;
+}
+
+
+.footer-row-2-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.8rem;
+    padding: 2rem 3rem;
+    margin-top: 5rem;
+}
+
+.footer-sitemap-link {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.footer-sitemap-bold {
+    font-weight: 700;
+}
+
+.footer-sitemap-link:not(.footer-sitemap-bold) {
+    font-weight: 400;
+}
+
+.footer-sitemap-link:hover {
+    color: #4ED7F1;
+}
+
+/* Top two-column row */
+
+.footer-cta-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3em;
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    z-index: 3;
+}
+
+/* Both columns take equal space */
+.footer-col {
+    flex: 1;
+}
+
+/* Column 1: asterisk + text */
+.footer-col-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 2rem;
+}
+
+/* Column 2: nav links */
+.footer-col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem 3rem;
+}
+
+/* Underlined nav links */
+.footer-nav-link {
+    font-family: 'Agdasima', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 0.2em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+    color: #4ED7F1;
+    border-color: #4ED7F1;
+}
+
+
+.footer-nav-arrow {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.footer-nav-link:hover .footer-nav-arrow {
+    transform: rotate(45deg);
+}
+
+.footer-cta-asterisk {
+    width: 15vw;
+    height: 15vh;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.footer-cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.footer-cta-bold {
+    font-family: 'Agdasima', sans-serif;
+    font-weight: 700;
+    font-size: 6rem;
+    color: white;
+    margin: 0;
+    line-height: 1;
+}
+
+.footer-cta-normal {
+    font-family: 'Agdasima', sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    color: white;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Submit Button Wrapper */
+.footer-submit-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 4;
+    /* Above the grain and asterisk */
+}
+
+/* Rounded rectangle CTA button */
+.footer-submit-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    background-color: #ECECEC;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    /* Asymmetric padding to wrap circle */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.02em;
+    box-shadow: inset 0 0 0 4px #4ED7F1, 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+.footer-submit-btn:hover .footer-submit-icon-circle {
+    transform: rotate(45deg);
+    /* Match the nav arrow tilt */
+}
+
+.footer-submit-icon-circle {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #4ED7F1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-submit-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    /* Base rotation pointing up-right */
+    filter: brightness(0);
+    /* Turn white SVG black */
+}
+
+
+/* Button local grain effect */
+.footer-submit-btn::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -10rem;
+    width: calc(100% + 20rem);
+    height: calc(100% + 20rem);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    animation: noise 1s steps(2) infinite;
+}
+
+/* Elevate text above grain */
+.footer-submit-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Wrapper that clips to top 50% of the asterisk image */
+.footer-asterisk-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 60vw;
+    height: 30vw;
+    /* half of image height → shows top 50% only */
+    overflow: hidden;
+}
+
+/* Asterisk image */
+.footer-asterisk-img {
+    width: 60vw;
+    height: auto;
+    display: block;
+    opacity: 10%;
+}
+
+/* Bottom accent line */
+.footer-bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1vh;
+    background-color: #4ED7F1;
+}
+
+/* Centered copyright text */
+.footer-copyright {
+    position: absolute;
+    bottom: 1vh;
+    font-weight: 800;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Agdasima', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+}
+
+/* Social icons - bottom right row */
+.footer-social-icons {
+    position: absolute;
+    bottom: 1.5vh;
+    right: 2vw;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer-social-icons a {
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social-icons a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.footer-social-icons img {
+    width: 1.5em;
+    height: 1.5em;
+}
