@@ -57,7 +57,7 @@ const CountrySelect: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <div className="footer-container">
+    <div className="footer-container" id="footer-section">
       {/* Top two-column row */}
       <div className="footer-cta-row">
         {/* Column 1: asterisk image + text */}
