@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import LoadingScreen from './components/LoadingScreen';
 
 // Placeholder components for other routes
 const Placeholder = ({ title }: { title: string }) => (
@@ -12,9 +13,45 @@ const Placeholder = ({ title }: { title: string }) => (
 );
 
 const App: React.FC = () => {
+  const [loadingPhase, setLoadingPhase] = React.useState<'loading' | 'transitioning' | 'complete'>('loading');
+
+  React.useEffect(() => {
+    const startTime = Date.now();
+    
+    const handleLoad = () => {
+      const elapsedTime = Date.now() - startTime;
+      const delay = Math.max(3000 - elapsedTime, 0);
+
+      setTimeout(() => {
+        setLoadingPhase('transitioning');
+        // Wait for the shared element transition to complete (approx 1.2s)
+        setTimeout(() => {
+          setLoadingPhase('complete');
+        }, 1200);
+      }, delay);
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {loadingPhase !== 'complete' && <LoadingScreen phase={loadingPhase} />}
+      <div 
+        className={`app-container ${loadingPhase}`}
+        style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          minHeight: '100vh',
+          opacity: loadingPhase === 'complete' ? 1 : (loadingPhase === 'transitioning' ? 1 : 0),
+          transition: 'opacity 0.8s ease-in-out'
+        }}
+      >
         {/* Shutter Layer */}
         <div style={{ 
           position: 'relative', 

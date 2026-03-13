@@ -24,6 +24,112 @@
   border-bottom: 0.3em solid #4ED7F1;
 }
 
+.services-section {
+  padding: 5vh 4% 3vh 4%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.services-heading {
+  font-family: 'Agdasima', sans-serif;
+  font-size: clamp(1rem, 5vw, 5rem);
+  /* Responsive but large */
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  /* Percentage based is safer for wide spacing */
+  margin: 0;
+  line-height: 1.1;
+  position: relative;
+  z-index: 5;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+  /* Subtle depth */
+}
+
+.services-strip {
+  width: 100%;
+  background-color: #4ED7F1;
+  padding: 0.4vh 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.strip-item {
+  font-family: 'Agdasima', sans-serif;
+  font-size: clamp(0.6rem, 1.5vw, 1.5rem);
+  font-weight: bolder;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.services-main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.services-list {
+  width: 70%;
+  max-width: 1400px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex: 1;
+  /* Stretch to fill remaining height */
+  box-sizing: border-box;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 3fr;
+  align-items: center;
+  padding: 0 4%;
+  /* Remove fixed vh padding */
+  border-bottom: 2px solid #000000;
+  gap: 2rem;
+  flex: 1;
+  /* Equally distribute height across 6 rows */
+  box-sizing: border-box;
+}
+
+.service-row:last-child {
+  border-bottom: none;
+}
+
+.service-num {
+  font-family: 'Agdasima', sans-serif;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 700;
+  color: #000000;
+}
+
+.service-title {
+  font-family: 'Agdasima', sans-serif;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 600;
+  color: #000000;
+}
+
+.service-desc {
+  font-family: 'Agdasima', sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+  font-weight: 400;
+  /* Not bold */
+  color: #333333;
+  margin: 0;
+  line-height: 1.4;
+}
+
 .hero-scroll-container {
   display: flex;
   width: 100%;

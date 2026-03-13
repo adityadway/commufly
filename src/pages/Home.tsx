@@ -67,9 +67,9 @@ const Home: React.FC = () => {
     <div className="home-container">
       <div className="hero-section">
         {/* Top spacer to check background visibility */}
-        <div style={{ height: '7vh', width: '100%' }}></div>
+        <div style={{ height: '8vh', width: '100%' }}></div>
         <HeroScroll direction="right" images={set1} />
-        <div style={{ height: '2vh', width: '100%' }}></div>
+        <div style={{ height: '4vh', width: '100%' }}></div>
         <HeroScroll direction="left" images={set2} className="hero-scroll-bottom-left" />
 
         <div className="home-cta-wrapper">
@@ -86,8 +86,36 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom spacer to check background visibility */}
-      <div style={{ height: '200vh', width: '100%' }}></div>
+      <div style={{ width: '100%', height: '10vh', backgroundColor: 'rgba(78, 215, 241, 0.2)', border: '1px dashed #4ED7F1' }}></div>
+      <div className="services-main-container">
+        <div className="services-section">
+          <h2 className="services-heading">SERVICES</h2>
+        </div>
+        <div className="services-strip">
+          <span className="strip-item">Precise</span>
+          <span className="strip-item">Structured</span>
+          <span className="strip-item">Focused</span>
+          <span className="strip-item">Visual Language</span>
+        </div>
+
+        <div className="services-list">
+          {[
+            { num: '01', title: 'Web Design', desc: 'We guide every visual decision from start to finish, ensuring clarity, emotion, and impact across every touchpoint.' },
+            { num: '02', title: 'Frontend Development', desc: 'Building responsive, high-performance web applications with clean, modern code architectures.' },
+            { num: '03', title: 'Brand Identity', desc: 'Creating unique visual languages that resonate with your audience and build lasting brand recognition.' },
+            { num: '04', title: 'UI/UX Strategy', desc: 'Designing intuitive user journeys that simplify complex processes and drive meaningful engagement.' },
+            { num: '05', title: 'Digital Motion', desc: 'Bringing interfaces to life with smooth, purposeful animations that enhance the user experience.' },
+            { num: '06', title: 'E-commerce Solutions', desc: 'Developing robust online stores that provide seamless shopping experiences and fuel business growth.' }
+          ].map((service, index) => (
+            <div key={index} className="service-row">
+              <span className="service-num">{service.num}</span>
+              <span className="service-title">{service.title}</span>
+              <p className="service-desc">{service.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="home-final-border"></div>
       {/* Other sections will go here */}
     </div>

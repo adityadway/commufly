@@ -37,6 +37,12 @@
   object-fit: contain;
 }
 
+/* Hide header logo during loading/transition so it looks like the one traveling is the same */
+.app-container.loading .aristiik-logo-img,
+.app-container.transitioning .aristiik-logo-img {
+  visibility: hidden;
+}
+
 .banner-nav {
   position: absolute;
   bottom: 2%;
