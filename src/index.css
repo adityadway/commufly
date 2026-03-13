@@ -66,14 +66,24 @@ body {
   z-index: 0;
   position: fixed;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
-  opacity: 0.15;
+  opacity: 0.45; /* Increased for better visibility */
   pointer-events: none;
-  -webkit-animation: noise 1s steps(2) infinite;
-  animation: noise 1s steps(2) infinite;
+  /* animation: noise 1.2s steps(2) infinite; */
 }
 
-@-webkit-keyframes noise {
-  to { transform: translate3d(-7rem,0,0) }
+.grain::after {
+  content: "";
+  top: -10rem;
+  left: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  z-index: 1;
+  position: fixed;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
+  background-size: 15%; /* Different scale for texture depth */
+  opacity: 0.25;
+  pointer-events: none;
+  /* animation: noise-alt 0.8s steps(3) infinite; */
 }
 
 @keyframes noise {
@@ -88,6 +98,14 @@ body {
   80% { transform: translate3d(-9rem,1rem,0) }
   90% { transform: translate3d(6rem,-5rem,0) }
   to { transform: translate3d(-7rem,0,0) }
+}
+
+@keyframes noise-alt {
+  0% { transform: translate3d(-5rem,0,0) }
+  25% { transform: translate3d(2rem,4rem,0) }
+  50% { transform: translate3d(6rem,-2rem,0) }
+  75% { transform: translate3d(-3rem,-5rem,0) }
+  100% { transform: translate3d(-5rem,0,0) }
 }
 
 h1, h2, h3, h4, h5, h6 {

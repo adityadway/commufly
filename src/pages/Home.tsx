@@ -86,7 +86,72 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ width: '100%', height: '10vh', backgroundColor: 'rgba(78, 215, 241, 0.2)', border: '1px dashed #4ED7F1' }}></div>
+      {/* ── PROJECT SECTION ── */}
+      <div className="projects-section">
+        <div className="explore-badge">EXPLORE</div>
+        <div className="projects-header">
+          <h2 className="projects-heading">SELECTED<br />WORK</h2>
+          <p className="projects-subheading">
+            Gorgeous <span className="cyan">design</span>, Scroll-stopping content,
+            Memorable campaigns, Development dripping with <span className="cyan">tech</span>.
+            The proof is in <span className="cyan">our</span> projects.
+          </p>
+        </div>
+
+        <div className="projects-grid">
+          {[
+            { 
+              num: '01', 
+              title: 'Aurora Towers',   
+              category: 'Architectural Design', 
+              img: card1,
+              desc: 'Exploration of vertical living through parametric design. This residential masterpiece redefines the skyline with its fluid glass facade and sustainable core.' 
+            },
+            { 
+              num: '02', 
+              title: 'Nexus Platform',   
+              category: 'UI / UX Design',       
+              img: card16,
+              desc: 'A comprehensive digital ecosystem for modern enterprises. We focused on seamless data visualization and intuitive workflow management for global teams.' 
+            },
+            { 
+              num: '03', 
+              title: 'Brand Synergy',    
+              category: 'Identity & Studio',    
+              img: card17,
+              desc: 'Crafting a cohesive visual narrative for a boutique fashion house. From typography to digital presence, every touchpoint reflects luxury and minimalism.' 
+            },
+            { 
+              num: '04', 
+              title: 'Cyber Core',       
+              category: 'UI / UX Design',       
+              img: card18,
+              desc: 'Next-generation fintech application designed for the decentralised future. A bold interface that balances complex data with accessible interactions.' 
+            },
+          ].map((p, i) => (
+            <div
+              key={i}
+              className="project-item-wrapper"
+              style={{ gridColumn: i % 2 === 0 ? '1' : '2' }}
+            >
+              <div className="project-card">
+                <img src={p.img} alt={p.title} className="project-card-img" />
+                <div className="project-hover-overlay">
+                  <p className="project-hover-desc">{p.desc}</p>
+                </div>
+              </div>
+              <div className="project-details-bottom">
+                <div className="project-details-main">
+                  <span className="project-card-num">({p.num})</span>
+                  <h3 className="project-card-title">{p.title}</h3>
+                </div>
+                <p className="project-card-category">{p.category}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="services-main-container">
         <div className="services-section">
           <h2 className="services-heading">SERVICES</h2>
