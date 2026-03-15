@@ -16,10 +16,10 @@
 .footer-container::after {
     content: "";
     position: absolute;
-    top: -10rem;
-    left: -10rem;
-    width: calc(100% + 20rem);
-    height: calc(100% + 20rem);
+    top: -10vw;
+    left: -10vw;
+    width: calc(100% + 20vw);
+    height: calc(100% + 20vw);
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
     opacity: 0.12;
     pointer-events: none;
@@ -40,21 +40,21 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 2rem 5vw;
-    gap: 1.5rem;
+    padding: 1.6vw 5vw;
+    gap: 1.2vw;
 }
 
 /* Row 1: Heading w/ underline */
 .footer-form-heading-row {
     border-bottom: 2px solid white;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.4vw;
+    margin-bottom: 0.4vw;
     width: fit-content;
 }
 
 .footer-form-heading {
     font-family: 'Agdasima', sans-serif;
-    font-size: 2rem;
+    font-size: 1.6vw;
     font-weight: 700;
     color: white;
     letter-spacing: 0em;
@@ -64,13 +64,13 @@
 /* Common form input style (similar to footer-nav-link) */
 .footer-form-input {
     font-family: 'Agdasima', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.44vw;
     font-weight: 400;
     color: white;
     background: transparent;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 0.2rem 0;
+    padding: 0.16vw 0;
     width: 100%;
     outline: none;
     transition: border-color 0.2s ease;
@@ -88,7 +88,7 @@
 .footer-form-phone-row {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.8vw;
     align-items: flex-end;
 }
 
@@ -96,7 +96,7 @@
 .footer-country-dropdown {
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 0.2rem 0;
+    padding: 0.16vw 0;
     cursor: pointer;
     min-width: 90px;
     user-select: none;
@@ -106,18 +106,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4vw;
 }
 
 .footer-country-code {
     font-family: 'Agdasima', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.44vw;
     color: #717171;
 }
 
 .footer-country-arrow {
-    width: 16px;
-    height: 16px;
+    width: 1.2vw;
+    height: 1.2vw;
     transition: transform 0.2s ease;
 }
 
@@ -125,8 +125,8 @@
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px;
-    max-height: 200px;
+    width: 16vw;
+    max-height: 16vw;
     background: #111;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
@@ -152,8 +152,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem 1rem;
+    gap: 0.6vw;
+    padding: 0.6vw 0.8vw;
     cursor: pointer;
     transition: background 0.2s ease;
 }
@@ -164,20 +164,20 @@
 
 .footer-country-code-list {
     font-family: 'Agdasima', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.28vw;
     color: white;
     min-width: 40px;
 }
 
 .footer-country-name {
     font-family: 'Agdasima', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.28vw;
     color: #717171;
 }
 
 .footer-flag-icon {
-    width: 24px;
-    height: 18px;
+    width: 1.9vw;
+    height: 1.4vw;
     object-fit: cover;
     border-radius: 2px;
 }
@@ -205,8 +205,8 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
+    width: 1.9vw;
+    height: 1.9vw;
     pointer-events: none;
     /* lets clicks pass through to the select */
 }
@@ -222,14 +222,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.8rem;
-    padding: 2rem 3rem;
-    margin-top: 5rem;
+    gap: 0.64vw;
+    padding: 1.6vw 2.4vw;
+    margin-top: 4vw;
 }
 
 .footer-sitemap-link {
     font-family: 'Agdasima', sans-serif;
-    font-size: 2rem;
+    font-size: 1.6vw;
     color: white;
     text-decoration: none;
     line-height: 1;
@@ -253,7 +253,7 @@
 .footer-cta-row {
     display: flex;
     flex-direction: row;
-    margin-top: 3em;
+    margin-top: 3vw;
     width: 100%;
     height: 30vh;
     position: relative;
@@ -270,8 +270,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem 2rem;
+    gap: 1.6vw;
+    padding: 1.6vw 1.6vw;
 }
 
 /* Column 2: nav links */
@@ -279,19 +279,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 2rem 3rem;
+    gap: 0.4vw;
+    padding: 1.6vw 2.4vw;
 }
 
 /* Underlined nav links */
 .footer-nav-link {
     font-family: 'Agdasima', sans-serif;
-    font-size: 2rem;
+    font-size: 1.6vw;
     font-weight: 400;
     color: white;
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    padding-bottom: 0.2em;
+    padding-bottom: 0.16vw;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -327,13 +327,13 @@
 .footer-cta-text {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.16vw;
 }
 
 .footer-cta-bold {
     font-family: 'Agdasima', sans-serif;
     font-weight: 700;
-    font-size: 6rem;
+    font-size: 4.8vw;
     color: white;
     margin: 0;
     line-height: 1;
@@ -342,7 +342,7 @@
 .footer-cta-normal {
     font-family: 'Agdasima', sans-serif;
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 3.2vw;
     color: white;
     margin: 0;
     line-height: 1;
@@ -353,7 +353,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2.4vw;
     position: relative;
     z-index: 4;
     /* Above the grain and asterisk */
@@ -362,24 +362,24 @@
 /* Rounded rectangle CTA button */
 .footer-submit-btn {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 1.6vw;
     font-weight: 700;
     color: black;
     background-color: #ECECEC;
-    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    padding: 0.4vw 0.4vw 0.4vw 1.6vw;
     /* Asymmetric padding to wrap circle */
     border: none;
-    border-radius: 50px;
+    border-radius: 4vw;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    letter-spacing: 0.02em;
-    box-shadow: inset 0 0 0 4px #4ED7F1, 0 4px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.02vw;
+    box-shadow: inset 0 0 0 0.3vw #4ED7F1, 0 4px 15px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.2vw;
 }
 
 
@@ -389,8 +389,8 @@
 }
 
 .footer-submit-icon-circle {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 2.8vw;
+    height: 2.8vw;
     background-color: #4ED7F1;
     border-radius: 50%;
     display: flex;
@@ -402,8 +402,8 @@
 }
 
 .footer-submit-arrow {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2vw;
+    height: 1.2vw;
     /* Base rotation pointing up-right */
     filter: brightness(0);
     /* Turn white SVG black */
@@ -414,10 +414,10 @@
 .footer-submit-btn::after {
     content: "";
     position: absolute;
-    top: -10rem;
-    left: -10rem;
-    width: calc(100% + 20rem);
-    height: calc(100% + 20rem);
+    top: -8vw;
+    left: -8vw;
+    width: calc(100% + 16vw);
+    height: calc(100% + 16vw);
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
     opacity: 0.15;
     pointer-events: none;
@@ -470,7 +470,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Agdasima', sans-serif;
-    font-size: 1.2rem;
+    font-size: 0.96vw;
     color: white;
     white-space: nowrap;
     letter-spacing: 0.05em;
@@ -483,7 +483,7 @@
     right: 2vw;
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1.6vw;
     align-items: center;
 }
 
@@ -496,10 +496,10 @@
 
 .footer-social-icons a:hover {
     opacity: 1;
-    transform: translateY(-2px);
+    transform: translateY(-0.16vw);
 }
 
 .footer-social-icons img {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.2vw;
+    height: 1.2vw;
 }

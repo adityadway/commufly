@@ -42,7 +42,7 @@
   background-color: #4ED7F1;
   color: black;
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(0.75rem, 1.2vw, 1.2rem);
+  font-size: clamp(0.6vw, 1.2vw, 1vw);
   font-weight: bolder;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -57,13 +57,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 2rem;
+  gap: 1.6vw;
   margin-bottom: 8vh;
 }
 
 .projects-subheading {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1vw, 2vw, 1.6vw);
   font-weight: 800;
   color: #ffffff;
   max-width: 36%;
@@ -81,7 +81,7 @@
 
 .projects-heading {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1rem, 5vw, 5rem);
+  font-size: clamp(0.8vw, 5vw, 4vw);
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
@@ -108,7 +108,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2vw;
 }
 
 .project-item-wrapper:nth-child(even) {
@@ -157,7 +157,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem;
+  padding: 2vw;
   background-color: rgba(0, 0, 0, 0.5);
   /* Darken factor */
   opacity: 0;
@@ -168,7 +168,7 @@
 
 .project-hover-desc {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 400;
   color: #ffffff;
   line-height: 1.6;
@@ -196,7 +196,7 @@
 
 .project-card-num {
   font-family: 'Agdasima', sans-serif;
-  font-size: 2rem;
+  font-size: 1.6vw;
   font-weight: 700;
   color: #4ED7F1;
   letter-spacing: 0.1em;
@@ -204,7 +204,7 @@
 
 .project-card-title {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  font-size: clamp(0.8vw, 1.8vw, 1.4vw);
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
@@ -215,13 +215,13 @@
 
 .project-card-category {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(0.7rem, 1vw, 1.1rem);
+  font-size: clamp(0.5vw, 1vw, 0.8vw);
   /* Slightly larger */
   font-weight: 700;
   /* Bolder weight */
   color: rgba(255, 255, 255, 0.9);
   /* Higher visibility */
-  margin: -0.5rem 0 0 0;
+  margin: -0.4vw 0 0 0;
   /* Further tightened spacing */
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -242,7 +242,7 @@
 
 .services-heading {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1rem, 5vw, 5rem);
+  font-size: clamp(0.8vw, 5vw, 4vw);
   /* Responsive but large */
   font-weight: 700;
   color: #000000;
@@ -270,7 +270,7 @@
 
 .strip-item {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(0.6rem, 1.5vw, 1.5rem);
+  font-size: clamp(0.5vw, 1.5vw, 1.2vw);
   font-weight: bolder;
   color: #000000;
   text-transform: uppercase;
@@ -305,7 +305,7 @@
   padding: 0 4%;
   /* Remove fixed vh padding */
   border-bottom: 2px solid #000000;
-  gap: 2rem;
+  gap: 1.6vw;
   flex: 1;
   /* Equally distribute height across 6 rows */
   box-sizing: border-box;
@@ -317,21 +317,21 @@
 
 .service-num {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 700;
   color: #000000;
 }
 
 .service-title {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 600;
   color: #000000;
 }
 
 .service-desc {
   font-family: 'Agdasima', sans-serif;
-  font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+  font-size: clamp(0.7vw, 1.2vw, 1.2vw);
   font-weight: 400;
   /* Not bold */
   color: #333333;
@@ -348,7 +348,7 @@
 .hero-scroll-track {
   display: flex;
   width: max-content;
-  gap: 2rem;
+  gap: 1.6vw;
 }
 
 .hero-scroll-track.scroll-right {
@@ -365,7 +365,7 @@
   align-items: center;
   justify-content: center;
   height: 25vh;
-  margin: 0 1rem;
+  margin: 0 0.8vw;
 }
 
 .hero-scroll-card-img img {
