@@ -12,6 +12,8 @@
   z-index: 999;
 }
 
+
+
 .aristiik-logo {
   position: absolute;
   bottom: 0;
@@ -31,6 +33,9 @@
   gap: 0.5rem;
 }
 
+
+
+
 .aristiik-logo-img {
   width: 15vw;
   height: 15vh;
@@ -48,19 +53,19 @@
   bottom: 2%;
   right: 8%;
   display: flex;
-  gap: 3rem;
+  gap: 2.5vw;
   z-index: 1001;
 }
 
 .banner-nav-link {
   font-family: 'Agdasima', sans-serif;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 1.3vw;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.05em;
   position: relative;
-  padding-bottom: 5px;
+  padding-bottom: 0.5vh;
   /* Space for the underline */
 }
 
@@ -143,7 +148,7 @@
   bottom: 0px;
   transform: translate(-8%, 30%);
   font-family: 'Poppins', var(--font-display);
-  font-size: clamp(5rem, 12vw, 12rem);
+  font-size: 10vw;
   font-weight: 800;
 
   /* Creates a hard stop (solid dual tone) where top 70% is Cyan and bottom 30% is Black */
