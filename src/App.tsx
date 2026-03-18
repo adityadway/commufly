@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import ProjectsPage from './pages/ProjectsPage';
 import LoadingScreen from './components/LoadingScreen';
 
 // Placeholder components for other routes
@@ -11,6 +12,20 @@ const Placeholder = ({ title }: { title: string }) => (
     <h1 style={{ fontSize: '3rem', color: 'var(--text-secondary)' }}>{title} Page Coming Soon</h1>
   </div>
 );
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  const showHeader = location.pathname !== '/projects';
+
+  return (
+    <>
+      {showHeader && <Header />}
+      <main style={{ flex: '1' }}>
+        {children}
+      </main>
+    </>
+  );
+};
 
 const App: React.FC = () => {
   const [loadingPhase, setLoadingPhase] = React.useState<'loading' | 'transitioning' | 'complete'>('loading');
@@ -60,17 +75,16 @@ const App: React.FC = () => {
           minHeight: '100vh',
           boxShadow: '0 10px 30px rgba(0,0,0,0.1)' 
         }}>
-          <Header />
-          <main style={{ flex: '1' }}>
+          <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/about" element={<Placeholder title="About" />} />
               <Route path="/services" element={<Placeholder title="Services" />} />
-              <Route path="/portfolio" element={<Placeholder title="Portfolio" />} />
               <Route path="/contact" element={<Placeholder title="Contact" />} />
               <Route path="*" element={<Placeholder title="404 - Not Found" />} />
             </Routes>
-          </main>
+          </Layout>
         </div>
         
         {/* Spacer to allow scrolling past the shutter and interacting with the fixed footer */}

@@ -21,7 +21,7 @@
 
 .home-final-border {
   width: 100%;
-  border-bottom: 0.3em solid #4ED7F1;
+  border-bottom: 0.3vh solid #4ED7F1;
 }
 
 /* ── PROJECT SECTION ── */
@@ -288,7 +288,7 @@
 
 .services-list {
   width: 70%;
-  max-width: 1400px;
+  max-width: 75vw;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -408,7 +408,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 2rem;
+  gap: 1.6vw;
 }
 
 .home-cta-description {

@@ -15,7 +15,7 @@ const Header: React.FC = () => {
         <nav className="banner-nav">
           <Link to="/projects" className="banner-nav-link">Projects</Link>
           <Link to="/about" className="banner-nav-link">About</Link>
-          <Link to="/contacts" className="banner-nav-link">Contacts</Link>
+          <Link to="/contact" className="banner-nav-link">Contacts</Link>
         </nav>
 
         <div className="rotating-image-container">

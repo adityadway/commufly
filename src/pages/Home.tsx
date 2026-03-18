@@ -87,7 +87,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* ── PROJECT SECTION ── */}
-      <div className="projects-section">
+      <div className="projects-section" id="projects">
         <div className="explore-badge">EXPLORE</div>
         <div className="projects-header">
           <h2 className="projects-heading">SELECTED<br />WORK</h2>
