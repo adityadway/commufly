@@ -1,0 +1,484 @@
+.about-page-container {
+  min-height: 100vh;
+  background-color: #EDEDED;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5vh 5vw 10vh 5vw;
+  gap: 5vh;
+}
+
+.about-split-layout {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  border-radius: 3vw;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.about-image-section {
+  width: 50%;
+  flex: none;
+  border-top-left-radius: 3vw;
+  border-bottom-left-radius: 3vw;
+
+  /* Apple Glass Effect */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 0px solid rgba(255, 255, 255, 0.5);
+  border-right: none;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.about-image-block {
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  /* Dark placeholder for image */
+  border-top-left-radius: 3vw;
+  border-bottom-left-radius: 3vw;
+  overflow: hidden;
+}
+
+.about-inner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-desc-section {
+  width: 50%;
+  flex: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2vw;
+  border-top-right-radius: 3vw;
+  border-bottom-right-radius: 3vw;
+
+  /* Apple Glass Effect */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 0px solid rgba(255, 255, 255, 0.5);
+  border-left: none;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+  /* soft shadow overlapping the image */
+}
+
+/* Reverse Layout Overrides */
+.about-split-layout.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-split-layout.reverse .about-image-section {
+  border-radius: 0 3vw 3vw 0;
+  border-left: none;
+  border-right: 0px solid rgba(255, 255, 255, 0.5);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.about-split-layout.reverse .about-image-block {
+  border-radius: 0 3vw 3vw 0;
+}
+
+.about-split-layout.reverse .about-desc-section {
+  border-radius: 3vw 0 0 3vw;
+  border-right: none;
+  border-left: 0px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.about-desc-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
+.about-desc-title {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 6vw;
+  font-weight: 700;
+  color: black;
+  margin: 0;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.about-team-strip {
+  background-color: #4ED7F1;
+  color: black;
+  font-family: 'Share Tech', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 700;
+  text-align: center;
+  display: block;
+  width: calc(100% + 4vw);
+  margin-left: -2vw;
+  margin-right: -2vw;
+  margin-top: -2vw;
+  margin-bottom: 1vw;
+  padding: 0.5vw 0;
+  letter-spacing: 0.05em;
+  box-sizing: border-box;
+}
+
+.about-desc-subtitle {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 2.5vw;
+  font-weight: 500;
+  color: #333333;
+  margin: 0 0 1vw 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.about-desc-text {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 2vw;
+  font-weight: 500;
+  color: black;
+  margin: 0;
+  line-height: 1.2;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.about-final-border {
+  width: 100%;
+  height: 0.3vh;
+  background-color: #4ED7F1;
+}
+
+/* Bottom Actions Row */
+.about-bottom-actions {
+  width: 100%;
+  padding: 2vw 2vw 0 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  bottom: 4vh;
+  z-index: 50;
+  pointer-events: none; /* Let background content be clicked through the empty gap */
+}
+
+.about-action-btn {
+  pointer-events: auto; /* Reactivate clicks explicitly for the buttons */
+}
+
+.about-action-btn.about-home-btn {
+  padding: 0.5vw 2vw 0.5vw 0.5vw;
+}
+
+.about-action-btn.about-home-btn .about-action-icon-circle {
+  overflow: hidden;
+}
+
+.about-action-btn.about-home-btn:hover .about-action-arrow {
+  animation: slide-left-in-right-about 0.5s ease-in-out forwards;
+}
+
+.about-action-btn.about-home-btn:hover .about-action-icon-circle {
+  transform: none;
+}
+
+.about-action-btn {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  padding: 0.5vw 0.5vw 0.5vw 2vw;
+  border: none;
+  border-radius: 10vw;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.02vw;
+  box-shadow: inset 0 0 0 0.2vw #4ED7F1, 0 4vw 15vw rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5vw;
+  z-index: 5;
+  text-decoration: none;
+}
+
+.about-action-btn:hover {
+  color: white;
+}
+
+.about-action-btn:hover .about-action-icon-circle {
+  transform: rotate(45deg);
+}
+
+.about-action-icon-circle {
+  width: 3.5vw;
+  height: 3.5vw;
+  background-color: #4ED7F1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.about-action-arrow {
+  width: 2vw;
+  height: 2vw;
+  filter: brightness(0);
+}
+
+.about-action-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.about-metrics-bar {
+  height: 28vh;
+  align-items: center;
+}
+
+.about-metrics-divider {
+  width: 4px;
+  height: 70%;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.about-metric-number {
+  font-size: 7.5vw;
+  font-weight: 700;
+  font-family: 'Share Tech', sans-serif;
+  color: black;
+  line-height: 1;
+}
+
+.about-metric-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 2.25vw;
+  font-weight: 500;
+  font-family: 'Share Tech', sans-serif;
+  color: #333333;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding-top: 1vw;
+}
+
+/* Team Focus Full Banner Constraints */
+.about-team-banner.reverse .about-image-section {
+  width: 100%;
+  border-radius: 3vw;
+  border-right: none;
+  border-left: none;
+}
+
+.about-team-banner.reverse .about-image-block {
+  border-radius: 3vw;
+}
+
+.about-team-banner.reverse .about-desc-section {
+  display: none; /* Extinguish text payload exclusively for Desktop UI geometry */
+}
+
+/* Image Collage Grid */
+.about-collage-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw;
+  gap: 1vw;
+  box-sizing: border-box;
+}
+
+.about-collage-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  width: 100%;
+  min-height: 0; /* Prevents flex flex overflow */
+}
+
+.about-collage-item {
+  flex: 1;
+  border-radius: 2vw;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.about-collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .about-page-content {
+    padding: 2vh 8vw 10vh 8vw;
+    gap: 2vh;
+  }
+
+  /* Shrink base container height by 30% and stack vertically ONLY for the Hero text/image cards */
+  .about-split-layout:has(.about-image-section) {
+    height: 50vh; 
+    flex-direction: column;
+  }
+
+  /* Reset reversed layout as well */
+  .about-split-layout.reverse {
+    flex-direction: column;
+  }
+
+  .about-image-section {
+    width: 100%;
+    height: 50%;
+    border-radius: 5vw 5vw 0 0;
+    border-right: none;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .about-split-layout.reverse .about-image-section {
+    border-radius: 5vw 5vw 0 0;
+    border-left: none;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .about-image-block {
+    border-radius: 5vw 5vw 0 0;
+  }
+
+  .about-split-layout.reverse .about-image-block {
+    border-radius: 5vw 5vw 0 0;
+  }
+
+  /* Force Full Area Mobile Banner Geometry Reversal */
+  .about-team-banner.reverse .about-image-section {
+    height: 50%; /* Resnap backwards to exactly 50% split */
+    border-radius: 5vw 5vw 0 0; /* Cut off the bottom rounded radii so it attaches to text cleanly */
+    border-bottom: 0px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .about-team-banner.reverse .about-image-block {
+    border-radius: 5vw 5vw 0 0;
+  }
+
+  .about-team-banner.reverse .about-desc-section {
+    display: flex; /* Unleash the hidden text block organically on mobile architectures */
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 5vw 5vw;
+  }
+
+  .about-desc-section {
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 5vw 5vw;
+    border-left: none;
+    border-top: none;
+    padding: 5vw;
+  }
+
+  .about-split-layout.reverse .about-desc-section {
+    border-radius: 0 0 5vw 5vw;
+    border-right: none;
+    border-top: none;
+  }
+
+  .about-desc-title {
+    font-size: 10vw;
+  }
+
+  .about-team-strip {
+    font-size: 3vw;
+    width: calc(100% + 10vw);
+    margin-left: -5vw;
+    margin-right: -5vw;
+    margin-top: -5vw;
+    margin-bottom: 2vw;
+    padding: 1vw 0;
+    text-align: center;
+  }
+
+  .about-desc-subtitle {
+    font-size: 5vw;
+  }
+
+  .about-desc-text {
+    font-size: 3.5vw;
+  }
+
+  .about-action-btn {
+    font-size: 4vw;
+    padding: 1vw 1vw 1vw 4vw;
+  }
+
+  .about-action-btn.about-home-btn {
+    padding: 1vw 4vw 1vw 1vw;
+  }
+
+  .about-action-icon-circle {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .about-action-arrow {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .about-metrics-bar {
+    height: 14vh;
+  }
+
+  .about-metrics-divider {
+    width: 2px;
+  }
+
+  .about-metric-number {
+    font-size: 10vw;
+  }
+
+  .about-metric-label {
+    font-size: 3vw;
+  }
+
+  /* Unravel strictly into a 2-column by 3-row CSS Grid stack */
+  .about-collage-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Native 2-column constraint */
+    height: auto; 
+    gap: 4vw;
+  }
+
+  .about-collage-row {
+    display: contents; /* Natively flattens nested react rows, pushing image children out dynamically to the master grid! */
+  }
+
+  .about-collage-item {
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    height: auto;
+    border-radius: 3vw; 
+  }
+}

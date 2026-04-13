@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 .footer-container {
@@ -33,7 +33,7 @@
     flex-direction: row;
     width: 100%;
     position: relative;
-    z-index: 3;
+    z-index: 10;
 }
 
 .footer-col-left-form {
@@ -53,7 +53,7 @@
 }
 
 .footer-form-heading {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.6vw;
     font-weight: 700;
     color: white;
@@ -63,7 +63,7 @@
 
 /* Common form input style (similar to footer-nav-link) */
 .footer-form-input {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.44vw;
     font-weight: 400;
     color: white;
@@ -110,7 +110,7 @@
 }
 
 .footer-country-code {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.44vw;
     color: #717171;
 }
@@ -163,14 +163,14 @@
 }
 
 .footer-country-code-list {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.28vw;
     color: white;
     min-width: 40px;
 }
 
 .footer-country-name {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.28vw;
     color: #717171;
 }
@@ -228,7 +228,7 @@
 }
 
 .footer-sitemap-link {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.6vw;
     color: white;
     text-decoration: none;
@@ -285,7 +285,7 @@
 
 /* Underlined nav links */
 .footer-nav-link {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 1.6vw;
     font-weight: 400;
     color: white;
@@ -331,7 +331,7 @@
 }
 
 .footer-cta-bold {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-weight: 700;
     font-size: 4.8vw;
     color: white;
@@ -340,7 +340,7 @@
 }
 
 .footer-cta-normal {
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-weight: 400;
     font-size: 3.2vw;
     color: white;
@@ -469,7 +469,7 @@
     font-weight: 800;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Agdasima', sans-serif;
+    font-family: 'Share Tech', sans-serif;
     font-size: 0.96vw;
     color: white;
     white-space: nowrap;
@@ -502,4 +502,168 @@
 .footer-social-icons img {
     width: 1.2vw;
     height: 1.2vw;
+}
+
+/* Mobile Adjustments for Footer Bottom Elements */
+@media (max-width: 768px) {
+    .footer-asterisk-wrapper {
+        width: 120vw;
+        height: 60vw;
+    }
+
+    .footer-asterisk-img {
+        width: 120vw;
+    }
+
+    .footer-copyright {
+        font-size: 3.5vw;
+        bottom: 2vh;
+    }
+
+    .footer-social-icons {
+        bottom: 2vh;
+        gap: 4vw;
+        right: 4vw;
+        flex-direction: column;
+    }
+
+    .footer-social-icons img {
+        width: 5.5vw;
+        height: 5.5vw;
+    }
+
+    .footer-submit-wrapper {
+        margin-top: 8vw;
+    }
+
+    .footer-submit-btn {
+        font-size: 5vw;
+        padding: 1.2vw 1.2vw 1.2vw 5vw;
+        border-radius: 10vw;
+        gap: 3vw;
+    }
+
+    .footer-submit-icon-circle {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .footer-submit-arrow {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /* Footer CTA Row Adjustments */
+    .footer-cta-row {
+        flex-direction: column;
+        height: auto;
+        gap: 5vh;
+        padding-top: 5vh;
+    }
+
+    .footer-col-left {
+        gap: 4vw;
+        padding: 0 5vw;
+    }
+
+    .footer-col-right {
+        gap: 2vh;
+        padding: 0 5vw;
+    }
+
+    .footer-cta-asterisk {
+        width: 25vw;
+        height: auto;
+    }
+
+    .footer-cta-bold {
+        font-size: 10vw;
+    }
+
+    .footer-cta-normal {
+        font-size: 6.5vw;
+    }
+
+    .footer-nav-link {
+        font-size: 3vw;
+        padding-bottom: 0.5vh;
+        padding: 0.2vw;
+    }
+
+    /* Client Intake Form Adjustments */
+    .footer-col-left-form {
+        padding: 3.5vw 2vw 3.5vw 5vw;
+        gap: 3vw;
+    }
+
+    .footer-form-heading {
+        margin-top: 1vh;
+        font-size: 5vw;
+    }
+
+    .footer-form-input,
+    .footer-form-select {
+        font-size: 5vw;
+        padding: 0.8vw 0;
+    }
+
+    .footer-country-dropdown {
+        padding: 0.8vw 0;
+    }
+
+    .footer-country-code {
+        font-size: 5vw;
+    }
+
+    .footer-country-arrow {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /* Country Dropdown Menu (Popup) Adjustments for Mobile */
+    .footer-country-menu {
+        width: 65vw;
+        max-height: 40vh;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .footer-country-option {
+        padding: 3vw 4vw;
+        gap: 3vw;
+    }
+
+    .footer-country-code-list,
+    .footer-country-name {
+        font-size: 4vw;
+    }
+
+    .footer-flag-icon {
+        width: 8vw;
+        height: 6vw;
+        border-radius: 4px;
+    }
+
+    .footer-form-select-arrow {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    /* Sitemap Column Adjustments */
+    .footer-row-2 {
+        flex-direction: row;
+    }
+
+    .footer-row-2-right {
+        padding: 5vw 5vw 5vw 2vw;
+        gap: 2vw;
+        margin-top: 6vh;
+    }
+
+    .footer-sitemap-link {
+        font-size: 4vw;
+        padding-bottom: 0.5vh;
+    }
 }

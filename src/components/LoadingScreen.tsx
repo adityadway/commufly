@@ -4,11 +4,12 @@ import asteriskImg from '../assets/images/Asterisk-PNG-Free-Image.png';
 
 interface LoadingScreenProps {
     phase: 'loading' | 'transitioning';
+    isSubPage?: boolean;
 }
 
-const LoadingScreen: React.FC<LoadingScreenProps> = ({ phase }) => {
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ phase, isSubPage = false }) => {
     return (
-        <div className={`loading-screen ${phase}`}>
+        <div className={`loading-screen ${phase} ${isSubPage ? 'no-travel' : ''}`}>
             <div className="loading-center">
                 <img src={asteriskImg} alt="Loading Asterisk" className="asterisk-gear" />
             </div>

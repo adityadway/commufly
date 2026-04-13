@@ -26,6 +26,7 @@ import card21 from '../assets/images/stack/card 21.png';
 import card22 from '../assets/images/stack/card 22.png';
 
 import arrowIcon from '../assets/images/arrow.svg';
+import BouncingLogos from '../components/BouncingLogos';
 
 interface HeroScrollProps {
   direction?: 'left' | 'right';
@@ -67,19 +68,20 @@ const Home: React.FC = () => {
     <div className="home-container">
       <div className="hero-section">
         {/* Top spacer to check background visibility */}
-        <div style={{ height: '8vh', width: '100%' }}></div>
+        <div className="hero-top-spacer" style={{ height: '8vh', width: '100%' }}></div>
         <HeroScroll direction="right" images={set1} />
         <div style={{ height: '4vh', width: '100%' }}></div>
         <HeroScroll direction="left" images={set2} className="hero-scroll-bottom-left" />
 
-        <div className="home-cta-wrapper">
+        <div className="home-cta-wrapper" style={{ position: 'relative' }}>
+          <BouncingLogos />
           <button className="home-cta-btn" onClick={scrollToFooter}>
             <span>Connect with Us !</span>
             <div className="home-cta-icon-circle">
               <img src={arrowIcon} alt="arrow" className="home-cta-arrow" />
             </div>
           </button>
-          <p className="home-cta-description">
+          <p className="home-cta-description" style={{ position: 'relative', zIndex: 2 }}>
             We build simple, <span className="text-grey">powerful</span> digital solutions that <br />
             help <span className="text-grey">communities</span> grow in the internet economy.
           </p>
@@ -100,33 +102,33 @@ const Home: React.FC = () => {
 
         <div className="projects-grid">
           {[
-            { 
-              num: '01', 
-              title: 'Aurora Towers',   
-              category: 'Architectural Design', 
+            {
+              num: '01',
+              title: 'Aurora Towers',
+              category: 'Architectural Design',
               img: card1,
-              desc: 'Exploration of vertical living through parametric design. This residential masterpiece redefines the skyline with its fluid glass facade and sustainable core.' 
+              desc: 'Exploration of vertical living through parametric design. This residential masterpiece redefines the skyline with its fluid glass facade and sustainable core.'
             },
-            { 
-              num: '02', 
-              title: 'Nexus Platform',   
-              category: 'UI / UX Design',       
+            {
+              num: '02',
+              title: 'Nexus Platform',
+              category: 'UI / UX Design',
               img: card16,
-              desc: 'A comprehensive digital ecosystem for modern enterprises. We focused on seamless data visualization and intuitive workflow management for global teams.' 
+              desc: 'A comprehensive digital ecosystem for modern enterprises. We focused on seamless data visualization and intuitive workflow management for global teams.'
             },
-            { 
-              num: '03', 
-              title: 'Brand Synergy',    
-              category: 'Identity & Studio',    
+            {
+              num: '03',
+              title: 'Brand Synergy',
+              category: 'Identity & Studio',
               img: card17,
-              desc: 'Crafting a cohesive visual narrative for a boutique fashion house. From typography to digital presence, every touchpoint reflects luxury and minimalism.' 
+              desc: 'Crafting a cohesive visual narrative for a boutique fashion house. From typography to digital presence, every touchpoint reflects luxury and minimalism.'
             },
-            { 
-              num: '04', 
-              title: 'Cyber Core',       
-              category: 'UI / UX Design',       
+            {
+              num: '04',
+              title: 'Cyber Core',
+              category: 'UI / UX Design',
               img: card18,
-              desc: 'Next-generation fintech application designed for the decentralised future. A bold interface that balances complex data with accessible interactions.' 
+              desc: 'Next-generation fintech application designed for the decentralised future. A bold interface that balances complex data with accessible interactions.'
             },
           ].map((p, i) => (
             <div
@@ -152,7 +154,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="services-main-container">
+      <div className="services-main-container" id="services">
         <div className="services-section">
           <h2 className="services-heading">SERVICES</h2>
         </div>

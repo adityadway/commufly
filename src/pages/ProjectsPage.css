@@ -179,7 +179,7 @@
 }
 
 .project-desc-title {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 6vw;
   font-weight: 700;
   color: black;
@@ -189,7 +189,7 @@
 }
 
 .project-desc-subtitle {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 2.5vw;
   font-weight: 500;
   color: #333333;
@@ -199,7 +199,7 @@
 }
 
 .project-desc-text {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 2vw;
   font-weight: 500;
   color: black;
@@ -277,7 +277,7 @@
 
 /* Duplicated CTA Button from Home */
 .project-action-btn {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 1.5vw;
   font-weight: 700;
   color: white;
@@ -334,4 +334,89 @@
 .project-action-btn span {
   position: relative;
   z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .projects-page-content {
+    padding: 2vh 8vw 10vh 8vw; /* Expanded from 5vw to provide wider anti-clip safe zones */
+  }
+
+  .project-split-layout {
+    flex-direction: column;
+    /* Height remains 70vh */
+  }
+
+  .project-image-section {
+    width: 100%;
+    height: 50%;
+    border-radius: 5vw 5vw 0 0;
+    border-right: none;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .project-image-block {
+    border-radius: 5vw 5vw 0 0;
+    --r: 6vw; /* Enlarged punch hole safely mirroring the new massive button! */
+  }
+
+  .project-desc-section {
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 5vw 5vw;
+    border-left: none;
+    border-top: none;
+    padding: 5vw;
+  }
+
+  .project-cutout-btn {
+    width: 12vw;
+    height: 12vw;
+    border: 0.5vw solid #4ED7F1;
+  }
+
+  .project-cutout-btn img {
+    width: 6vw;
+  }
+
+  /* Restore intended coordinates, screen-edge trimming is cured natively by the 8vw downscale fitting inside 5vw screen padding */
+  .btn-left {
+    left: 0;
+    top: 40%;
+  }
+
+  .btn-right {
+    left: 100%;
+    top: 10%;
+  }
+
+  .project-desc-title {
+    font-size: 10vw;
+  }
+
+  .project-desc-subtitle {
+    font-size: 5vw;
+  }
+
+  .project-desc-text {
+    font-size: 3.5vw;
+  }
+  
+  .project-action-btn {
+    font-size: 4vw;
+    padding: 1vw 1vw 1vw 4vw;
+  }
+
+  .project-action-btn.project-home-btn {
+    padding: 1vw 4vw 1vw 1vw;
+  }
+  
+  .project-action-icon-circle {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .project-action-arrow {
+    width: 4vw;
+    height: 4vw;
+  }
 }

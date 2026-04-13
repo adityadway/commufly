@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import asterisk from '../assets/images/Asterisk-PNG-Free-Image.png';
 import linkedinIcon from '../assets/images/linkedin.svg';
@@ -27,8 +28,8 @@ const CountrySelect: React.FC = () => {
   ];
 
   return (
-    <div className="footer-country-dropdown" onClick={() => setIsOpen(!isOpen)}>
-      <div className="footer-country-trigger">
+    <div className="footer-country-dropdown">
+      <div className="footer-country-trigger" onClick={() => setIsOpen(!isOpen)}>
         <img src={selected.flag} alt={selected.name} className="footer-flag-icon" />
         <span className="footer-country-code">{selected.code}</span>
         <svg className="footer-country-arrow" viewBox="0 0 24 24" fill="none" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
@@ -42,7 +43,11 @@ const CountrySelect: React.FC = () => {
             <div
               key={c.name}
               className="footer-country-option"
-              onClick={() => setSelected(c)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelected(c);
+                setIsOpen(false);
+              }}
             >
               <img src={c.flag} alt={c.name} className="footer-flag-icon" />
               <span className="footer-country-code-list">{c.code}</span>
@@ -129,13 +134,22 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="footer-row-2-right">
-          <a href="#" className="footer-sitemap-link footer-sitemap-bold">WORK</a>
-          <a href="#" className="footer-sitemap-link footer-sitemap-bold">ABOUT</a>
-          <a href="#" className="footer-sitemap-link footer-sitemap-bold">SERVICES</a>
-          <a href="#" className="footer-sitemap-link footer-sitemap-bold">CONTACT</a>
-          <a href="#" className="footer-sitemap-link footer-sitemap-bold">CAREERS</a>
-          <a href="#" className="footer-sitemap-link">Terms & Conditions</a>
-          <a href="#" className="footer-sitemap-link">Privacy Policy</a>
+          <Link to="/projects" className="footer-sitemap-link footer-sitemap-bold" onClick={() => window.scrollTo(0,0)}>WORK</Link>
+          <Link to="/about" className="footer-sitemap-link footer-sitemap-bold" onClick={() => window.scrollTo(0,0)}>ABOUT</Link>
+          <a href="/#services" className="footer-sitemap-link footer-sitemap-bold">SERVICES</a>
+          <a 
+            href="#footer-section" 
+            className="footer-sitemap-link footer-sitemap-bold"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }}
+          >
+            CONTACT
+          </a>
+          <Link to="/careers" className="footer-sitemap-link footer-sitemap-bold" onClick={() => window.scrollTo(0,0)}>CAREERS</Link>
+          <Link to="/terms" className="footer-sitemap-link" onClick={() => window.scrollTo(0,0)}>Terms & Conditions</Link>
+          <Link to="/privacy" className="footer-sitemap-link" onClick={() => window.scrollTo(0,0)}>Privacy Policy</Link>
         </div>
       </div>
 

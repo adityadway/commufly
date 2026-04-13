@@ -5,30 +5,47 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProjectsPage from './pages/ProjectsPage';
 import LoadingScreen from './components/LoadingScreen';
-
-// Placeholder components for other routes
-const Placeholder = ({ title }: { title: string }) => (
-  <div style={{ padding: '6rem 2rem', textAlign: 'center', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <h1 style={{ fontSize: '3rem', color: 'var(--text-secondary)' }}>{title} Page Coming Soon</h1>
-  </div>
-);
+import AboutPage from './pages/AboutPage';
+import DefaultPage from './components/DefaultPage';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
-  const showHeader = location.pathname !== '/projects';
+  const showHeader = location.pathname === '/';
+  const showFooter = ['/', '/projects', '/about'].includes(location.pathname);
 
   return (
     <>
-      {showHeader && <Header />}
-      <main style={{ flex: '1' }}>
-        {children}
-      </main>
+      <div style={{ 
+          position: 'relative', 
+          zIndex: 2, 
+          backgroundColor: showFooter ? '#EDEDED' : '#000000',
+          minHeight: '100vh',
+          boxShadow: showFooter ? '0 10px 30px rgba(0,0,0,0.1)' : 'none' 
+      }}>
+        {showHeader && <Header />}
+        <main style={{ flex: '1' }}>
+          {children}
+        </main>
+      </div>
+
+      {showFooter && (
+        <>
+          {/* Spacer to allow scrolling past the shutter and interacting with the fixed footer */}
+          <div style={{ height: '100vh' }}></div>
+          {/* Reveal Layer (Fixed behind everything) */}
+          <Footer />
+        </>
+      )}
     </>
   );
 };
 
 const App: React.FC = () => {
   const [loadingPhase, setLoadingPhase] = React.useState<'loading' | 'transitioning' | 'complete'>('loading');
+  const [isSubPage] = React.useState(() => {
+    const p = window.location.pathname;
+    return p.startsWith('/projects') || p.startsWith('/about') || p.startsWith('/contact') || p.startsWith('/services');
+  });
 
   React.useEffect(() => {
     const startTime = Date.now();
@@ -56,7 +73,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      {loadingPhase !== 'complete' && <LoadingScreen phase={loadingPhase} />}
+      {loadingPhase !== 'complete' && <LoadingScreen phase={loadingPhase} isSubPage={isSubPage} />}
       <div 
         className={`app-container ${loadingPhase}`}
         style={{ 
@@ -68,30 +85,17 @@ const App: React.FC = () => {
         }}
       >
         {/* Shutter Layer */}
-        <div style={{ 
-          position: 'relative', 
-          zIndex: 2, 
-          backgroundColor: '#EDEDED',
-          minHeight: '100vh',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.1)' 
-        }}>
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/about" element={<Placeholder title="About" />} />
-              <Route path="/services" element={<Placeholder title="Services" />} />
-              <Route path="/contact" element={<Placeholder title="Contact" />} />
-              <Route path="*" element={<Placeholder title="404 - Not Found" />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/careers" element={<DefaultPage type="career" title="Join Our Team" />} />
+              <Route path="/terms" element={<DefaultPage type="legal" title="Terms & Conditions" />} />
+              <Route path="/privacy" element={<DefaultPage type="legal" title="Privacy Policy" />} />
+              <Route path="*" element={<DefaultPage type="404" title="Error 404" />} />
             </Routes>
           </Layout>
-        </div>
-        
-        {/* Spacer to allow scrolling past the shutter and interacting with the fixed footer */}
-        <div style={{ height: '100vh' }}></div>
-
-        {/* Reveal Layer (Fixed behind everything) */}
-        <Footer />
       </div>
     </Router>
   );

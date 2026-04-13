@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Agdasima:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Share+Tech&display=swap');
 
 .header-banner {
   width: 100%;
@@ -10,6 +10,285 @@
   position: relative;
   overflow: visible;
   z-index: 999;
+}
+
+@keyframes rotateLoopMobile {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveSidewaysMobile {
+
+  0%,
+  100% {
+    transform: translateX(calc(-50% - 4vh));
+  }
+
+  50% {
+    transform: translateX(calc(-50% + 4vh));
+  }
+}
+
+/* Custom Hamburger Button (Hidden on Desktop) */
+#menu-btn-container {
+  display: none;
+  position: absolute;
+  top: 70%;
+  right: 5vw;
+  width: 39px;
+  transform: translateY(-50%) scale(1);
+  z-index: 1100;
+}
+
+#menu-btn {
+  width: 39px;
+  overflow: hidden;
+}
+
+#menu-checkbox {
+  display: none;
+}
+
+#menu-label {
+  position: relative;
+  display: block;
+  height: 29px;
+  cursor: pointer;
+}
+
+#menu-label:before,
+#menu-label:after,
+#menu-bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+}
+
+#menu-label:before,
+#menu-label:after {
+  content: "";
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) left;
+}
+
+#menu-label:before {
+  top: 0;
+}
+
+#menu-label:after {
+  top: 12px;
+}
+
+#menu-bar {
+  top: 24px;
+}
+
+#menu-bar:before {
+  content: "MENU";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 0;
+  color: #fff;
+  font-size: 2.5vw;
+  font-weight: bold;
+  font-family: inherit;
+  text-align: center;
+}
+
+#menu-checkbox:checked+#menu-label:before {
+  left: -39px;
+}
+
+#menu-checkbox:checked+#menu-label:after {
+  left: 39px;
+}
+
+#menu-checkbox:checked+#menu-label #menu-bar:before {
+  animation: moveUpThenDown 0.8s ease 0.2s forwards,
+    shakeWhileMovingUp 0.8s ease 0.2s forwards,
+    shakeWhileMovingDown 0.2s ease 0.8s forwards;
+}
+
+@keyframes moveUpThenDown {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: -27px;
+  }
+
+  100% {
+    top: -14px;
+  }
+}
+
+@keyframes shakeWhileMovingUp {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  25% {
+    transform: rotateZ(-10deg);
+  }
+
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  75% {
+    transform: rotateZ(10deg);
+  }
+
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes shakeWhileMovingDown {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  80% {
+    transform: rotateZ(3deg);
+  }
+
+  90% {
+    transform: rotateZ(-3deg);
+  }
+
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-banner {
+    height: 8vh;
+  }
+
+  .header-banner-text {
+    font-size: 11vw !important;
+  }
+
+  .rotating-image-container {
+    right: 0;
+    left: auto;
+    top: 0;
+    width: 45vw;
+    height: 45vw;
+    border-radius: 0;
+    border-bottom-left-radius: 35vw;
+    overflow: hidden !important;
+    transform: none;
+  }
+
+  .rotating-image {
+    right: 0;
+    left: auto;
+    top: 0;
+    opacity: 0.8;
+    width: 60vw;
+    height: 60vw;
+    object-fit: cover !important;
+    transform: translate(50%, -50%);
+    animation: rotateLoop 15s linear infinite;
+  }
+
+  /* Specifically reduce the massive asterisk graphic size universally on mobile */
+  .aristiik-logo-img {
+    width: 7.5vw !important;
+    height: 7.5vh !important;
+  }
+
+  /* Reactivate visibility during transition since the loading asterisk is no longer traveling to overlay it */
+  .app-container.loading .aristiik-logo-img,
+  .app-container.transitioning .aristiik-logo-img {
+    visibility: visible !important;
+  }
+
+  /* Custom Hamburger Display */
+  #menu-btn-container {
+    display: block;
+  }
+
+  /* Vertical Collapsible Nav */
+  .banner-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0 !important;
+    position: absolute;
+    top: 100%;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+    z-index: 990 !important;
+    pointer-events: none;
+  }
+
+  .banner-nav.mobile-open {
+    pointer-events: auto;
+  }
+
+  .banner-nav-link {
+    display: block;
+    font-size: 5vw !important;
+    font-weight: 400;
+    z-index: 990 !important;
+    width: 100%;
+    text-align: right;
+    box-sizing: border-box;
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-5vw);
+    background-color: #4ED7F1;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .banner-nav.mobile-open .banner-nav-link {
+    max-height: 55vw;
+    z-index: 990 !important;
+    padding: 1vw 4vw 4vh 0;
+    opacity: 1;
+    transform: translateY(0);
+    border-bottom: 0.1vh solid black;
+  }
+
+  /* Removed border-bottom-color transparent to allow black border on 3rd child */
+
+  .banner-nav.mobile-open .banner-nav-link:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  .banner-nav-link:nth-child(2) {
+    background-color: black !important;
+  }
+
+  .banner-nav.mobile-open .banner-nav-link:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+
+  .banner-nav.mobile-open .banner-nav-link:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  .banner-nav-link::before,
+  .banner-nav-link::after {
+    display: none;
+  }
 }
 
 
@@ -34,8 +313,8 @@
 }
 
 .aristiik-logo-img {
-  width: 15vw;
-  height: 15vh;
+  width: 16vw;
+  height: 16vh;
   object-fit: contain;
 }
 
@@ -55,7 +334,7 @@
 }
 
 .banner-nav-link {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   color: #ffffff;
   font-size: 1.3vw;
   font-weight: 700;

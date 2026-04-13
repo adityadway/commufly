@@ -10,6 +10,8 @@
   z-index: 1000;
 }
 
+
+
 .project-header-logo-link {
   display: flex;
   align-items: center;
@@ -30,11 +32,25 @@
 .project-header-title {
   position: absolute;
   left: 10%;
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 4vw;
   font-weight: 700;
   color: white;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .project-header {
+    height: 7vh;
+  }
+  
+  .project-header-logo {
+    height: 2.5vh;
+  }
+
+  .project-header-title {
+    font-size: 6vw;
+  }
 }

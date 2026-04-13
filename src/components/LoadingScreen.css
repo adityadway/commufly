@@ -55,8 +55,24 @@
 }
 
 .loading-screen.transitioning .asterisk-gear {
-    animation: none; /* Settle the rotation */
+    animation: none; /* Settle the rotation universally */
     transform: rotate(0deg);
+}
+
+.loading-screen.transitioning.no-travel .asterisk-gear {
+    animation: none;
+    transform: rotate(0deg);
+}
+
+/* Explicitly override travel coordinates globally if the animation is trapped on a sub-route */
+.loading-screen.transitioning.no-travel .loading-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 30vh;
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
 }
 
 @keyframes gear-rotate {
@@ -118,5 +134,19 @@
 
     100% {
         left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Explicitly kill the physical travel coordinate tracking on cell phones. 
+       Instead simply dissolve the loading asterisk cleanly in place */
+    .loading-screen.transitioning .loading-center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30vw;
+        height: 30vh;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
     }
 }

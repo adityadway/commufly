@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@600&display=swap');
+
 .home-container {
   width: 100vw;
   background-color: transparent;
@@ -6,7 +8,7 @@
 
 .hero-scroll-wrapper {
   width: 100vw;
-  height: 25vh;
+  height: 20vh;
   background-color: #000;
   display: flex;
   align-items: center;
@@ -41,7 +43,7 @@
   /* 50% outside, 50% inside */
   background-color: #4ED7F1;
   color: black;
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.6vw, 1.2vw, 1vw);
   font-weight: bolder;
   letter-spacing: 0.1em;
@@ -62,7 +64,7 @@
 }
 
 .projects-subheading {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(1vw, 2vw, 1.6vw);
   font-weight: 800;
   color: #ffffff;
@@ -80,7 +82,7 @@
 }
 
 .projects-heading {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.8vw, 5vw, 4vw);
   font-weight: 700;
   color: #ffffff;
@@ -167,7 +169,7 @@
 }
 
 .project-hover-desc {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 400;
   color: #ffffff;
@@ -195,7 +197,7 @@
 
 
 .project-card-num {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 1.6vw;
   font-weight: 700;
   color: #4ED7F1;
@@ -203,7 +205,7 @@
 }
 
 .project-card-title {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.8vw, 1.8vw, 1.4vw);
   font-weight: 700;
   color: #ffffff;
@@ -214,7 +216,7 @@
 }
 
 .project-card-category {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.5vw, 1vw, 0.8vw);
   /* Slightly larger */
   font-weight: 700;
@@ -241,7 +243,7 @@
 }
 
 .services-heading {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.8vw, 5vw, 4vw);
   /* Responsive but large */
   font-weight: 700;
@@ -269,7 +271,7 @@
 }
 
 .strip-item {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.5vw, 1.5vw, 1.2vw);
   font-weight: bolder;
   color: #000000;
@@ -316,23 +318,23 @@
 }
 
 .service-num {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 700;
   color: #000000;
 }
 
 .service-title {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 600;
   color: #000000;
 }
 
 .service-desc {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'KoHo', sans-serif;
   font-size: clamp(0.7vw, 1.2vw, 1.2vw);
-  font-weight: 400;
+  font-weight: 600;
   /* Not bold */
   color: #333333;
   margin: 0;
@@ -364,13 +366,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25vh;
+  height: 20vh;
   margin: 0 0.8vw;
 }
 
 .hero-scroll-card-img img {
   height: auto;
-  max-height: 20vh;
+  max-height: 16vh;
   /* Leave some padding/breathing room */
   width: auto;
   object-fit: contain;
@@ -412,7 +414,7 @@
 }
 
 .home-cta-description {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 2vw;
   font-weight: 800;
   color: black;
@@ -430,7 +432,7 @@
 }
 
 .home-cta-btn {
-  font-family: 'Agdasima', sans-serif;
+  font-family: 'Share Tech', sans-serif;
   font-size: 1.5vw;
   font-weight: 700;
   color: white;
@@ -493,4 +495,125 @@
 .home-cta-btn span {
   position: relative;
   z-index: 2;
+}
+
+/* Mobile Hero Reordering */
+@media (max-width: 768px) {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+  }
+
+  .home-cta-wrapper {
+    order: -1;
+    padding-top: 4vh;
+    /* Adjust padding if needed since it's now at the top */
+    flex-direction: column-reverse;
+    /* Stack button below description for mobile */
+    gap: 4vh;
+  }
+
+  .home-cta-description {
+    margin-top: 7vh;
+    font-size: 4vw;
+    max-width: 80%;
+  }
+
+  /* Hide the manual top spacer on mobile since CTA has padding */
+  .hero-section>div:first-child {
+    display: none;
+  }
+
+  /* Scale up CTA button for mobile */
+  .home-cta-btn {
+    font-size: 5vw;
+    margin-top: 6vh;
+    margin-bottom: 0vh;
+    padding: 1.5vw 1.5vw 1.5vw 6vw;
+    box-shadow: inset 0 0 0 0.6vw #4ED7F1, 0 8vw 25vw rgba(0, 0, 0, 0.3);
+    gap: 4vw;
+  }
+
+  .home-cta-icon-circle {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  .home-cta-arrow {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .explore-badge {
+    font-size: 2.5vw;
+    padding: 0.4em 1.5em;
+  }
+
+  .projects-subheading {
+    font-size: 3vw;
+    max-width: 40%;
+  }
+
+  .projects-heading {
+    font-size: 8vw;
+    line-height: 1.1;
+  }
+
+  .services-heading {
+    font-size: 12vw;
+  }
+
+  .services-list {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .service-row {
+    grid-template-columns: 0.8fr 1.8fr 3fr;
+    gap: 4vw;
+  }
+
+  .service-num {
+    font-size: 5vw;
+  }
+
+  .service-title {
+    font-size: 5.5vw;
+  }
+
+  .service-desc {
+    font-size: 3.5vw;
+  }
+
+  .strip-item {
+    font-size: 3vw;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+    gap: 8vh;
+    padding-bottom: 15vh;
+  }
+
+  /* Reset stagger effect for mobile grid */
+  .project-item-wrapper:nth-child(even) {
+    transform: none;
+  }
+
+  .project-card-title {
+    font-size: 6vw;
+  }
+
+  .project-card-category {
+    font-size: 4vw;
+  }
+
+  .project-card-num {
+    font-size: 5vw;
+  }
 }
