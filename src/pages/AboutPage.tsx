@@ -5,12 +5,7 @@ import arrowIcon from '../assets/images/arrow.svg';
 import arrowHomeIcon from '../assets/images/Arrow home.svg';
 import aboutImage from '../assets/images/about us.png';
 import aboutImage2 from '../assets/images/vision.png';
-import collageImg1 from '../assets/images/stack/card 4.webp';
-import collageImg2 from '../assets/images/stack/card 5.webp';
-import collageImg3 from '../assets/images/stack/card 6.webp';
-import collageImg4 from '../assets/images/stack/card 7.webp';
-import collageImg5 from '../assets/images/stack/card 8.webp';
-import collageImg6 from '../assets/images/stack/card 9.webp';
+
 import teamImg1 from '../assets/images/Team/Aditya Dave - Full-stack Engineer.png';
 import teamImg2 from '../assets/images/Team/Divyam Dave - AI Automation.png';
 import teamImg3 from '../assets/images/Team/Divynshi Verma -  Managment .png';
