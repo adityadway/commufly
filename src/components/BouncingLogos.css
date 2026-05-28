@@ -25,8 +25,9 @@
         width: 40px;
         height: 40px;
         object-fit: contain;
-        opacity: 0.9;
-        /* Slightly transparent so they don't clobber the foreground */
+        opacity: 0.1;
+        filter: grayscale(100%);
+        /* Ghostly transparency wash */
         will-change: transform;
         /* Hardware acceleration for fluid 60fps */
     }

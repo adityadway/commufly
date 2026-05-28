@@ -53,7 +53,7 @@
 .about-inner-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .about-desc-title {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 6vw;
   font-weight: 700;
   color: black;
@@ -120,7 +120,7 @@
 .about-team-strip {
   background-color: #4ED7F1;
   color: black;
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 1.5vw;
   font-weight: 700;
   text-align: center;
@@ -136,7 +136,7 @@
 }
 
 .about-desc-subtitle {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 2.5vw;
   font-weight: 500;
   color: #333333;
@@ -146,14 +146,14 @@
 }
 
 .about-desc-text {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 2vw;
   font-weight: 500;
   color: black;
   margin: 0;
   line-height: 1.2;
   text-align: justify;
-  text-align-last: justify;
+  text-align-last: left;
 }
 
 .about-final-border {
@@ -196,7 +196,7 @@
 }
 
 .about-action-btn {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 1.5vw;
   font-weight: 700;
   color: white;
@@ -255,6 +255,72 @@
   align-items: center;
 }
 
+.about-metric-item {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+
+.flip-counter-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 400px;
+}
+
+.flip-digit-wrapper {
+  position: relative;
+  width: 0.65ch;
+  height: 1.2em;
+  display: inline-block;
+  margin: 0 0.05ch;
+  perspective: 400px;
+}
+
+.flip-digit-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.flip-digit-card.flip-active {
+  transform: rotateX(-180deg);
+}
+
+.flip-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+.flip-card-front {
+  transform: rotateX(0deg);
+}
+
+.flip-card-back {
+  transform: rotateX(180deg);
+}
+
+.flip-counter-suffix {
+  margin-left: 0.1ch;
+  display: inline-block;
+}
+
 .about-metrics-divider {
   width: 4px;
   height: 70%;
@@ -265,7 +331,7 @@
 .about-metric-number {
   font-size: 7.5vw;
   font-weight: 700;
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   color: black;
   line-height: 1;
 }
@@ -277,53 +343,47 @@
   justify-content: center;
   font-size: 2.25vw;
   font-weight: 500;
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   color: #333333;
   text-transform: uppercase;
   line-height: 1.2;
   padding-top: 1vw;
 }
 
-/* Team Focus Full Banner Constraints */
-.about-team-banner.reverse .about-image-section {
-  width: 100%;
-  border-radius: 3vw;
-  border-right: none;
-  border-left: none;
-}
 
-.about-team-banner.reverse .about-image-block {
-  border-radius: 3vw;
-}
-
-.about-team-banner.reverse .about-desc-section {
-  display: none; /* Extinguish text payload exclusively for Desktop UI geometry */
-}
 
 /* Image Collage Grid */
 .about-collage-container {
-  height: 80vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  padding: 1vw;
-  gap: 1vw;
+  padding: 2vw 8vw;
+  gap: 3.5vw;
   box-sizing: border-box;
 }
 
 .about-collage-row {
-  flex: 1;
   display: flex;
   flex-direction: row;
-  gap: 1vw;
+  gap: 3.5vw;
   width: 100%;
-  min-height: 0; /* Prevents flex flex overflow */
 }
 
 .about-collage-item {
   flex: 1;
+  height: auto;
+}
+
+.team-image-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
   border-radius: 2vw;
   overflow: hidden;
-  min-height: 0;
+  position: relative;
+}
+
+.team-mobile-details-card {
+  display: none;
 }
 
 .about-collage-img {
@@ -331,6 +391,72 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.team-card-interactive {
+  position: relative;
+  cursor: none;
+}
+
+.team-hover-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(78, 215, 241, 0.4);
+  padding: 0.8vw 1.2vw;
+  border-radius: 1vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  transform: translate(-50%, -120%);
+}
+
+.team-tooltip-role {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 0.8vw;
+  font-weight: 700;
+  color: #4ED7F1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.team-tooltip-name {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 1.3vw;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-top: 0.2vw;
+}
+
+.team-members-strip {
+  width: 100%;
+  background-color: #4ED7F1;
+  padding: 0.6vh 8vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+.team-strip-item {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: clamp(0.5vw, 1.5vw, 1.2vw);
+  font-weight: bolder;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 @media (max-width: 768px) {
@@ -341,7 +467,7 @@
 
   /* Shrink base container height by 30% and stack vertically ONLY for the Hero text/image cards */
   .about-split-layout:has(.about-image-section) {
-    height: 50vh; 
+    height: auto; 
     flex-direction: column;
   }
 
@@ -352,7 +478,7 @@
 
   .about-image-section {
     width: 100%;
-    height: 50%;
+    height: 30vh;
     border-radius: 5vw 5vw 0 0;
     border-right: none;
     border-bottom: 0px solid rgba(255, 255, 255, 0.5);
@@ -374,7 +500,7 @@
 
   /* Force Full Area Mobile Banner Geometry Reversal */
   .about-team-banner.reverse .about-image-section {
-    height: 50%; /* Resnap backwards to exactly 50% split */
+    height: 30vh; /* Resnap backwards to exactly 30vh */
     border-radius: 5vw 5vw 0 0; /* Cut off the bottom rounded radii so it attaches to text cleanly */
     border-bottom: 0px solid rgba(255, 255, 255, 0.5);
   }
@@ -386,13 +512,13 @@
   .about-team-banner.reverse .about-desc-section {
     display: flex; /* Unleash the hidden text block organically on mobile architectures */
     width: 100%;
-    height: 50%;
+    height: auto;
     border-radius: 0 0 5vw 5vw;
   }
 
   .about-desc-section {
     width: 100%;
-    height: 50%;
+    height: auto;
     border-radius: 0 0 5vw 5vw;
     border-left: none;
     border-top: none;
@@ -448,19 +574,29 @@
   }
 
   .about-metrics-bar {
-    height: 14vh;
+    height: auto;
+    min-height: 12vh;
+    padding: 3vw 1vw;
+    box-sizing: border-box;
+  }
+
+  .about-metric-item {
+    gap: 1.5vw;
+    padding: 0 1vw;
   }
 
   .about-metrics-divider {
     width: 2px;
+    height: 6vh;
   }
 
   .about-metric-number {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 
   .about-metric-label {
-    font-size: 3vw;
+    font-size: 2.5vw;
+    padding-top: 0;
   }
 
   /* Unravel strictly into a 2-column by 3-row CSS Grid stack */
@@ -468,7 +604,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr; /* Native 2-column constraint */
     height: auto; 
-    gap: 4vw;
+    padding: 2vw 6vw;
+    gap: 8vw;
   }
 
   .about-collage-row {
@@ -477,8 +614,68 @@
 
   .about-collage-item {
     width: 100%;
-    aspect-ratio: 4 / 3; 
     height: auto;
-    border-radius: 3vw; 
+  }
+
+  .team-image-container {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 3vw;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .team-card-interactive {
+    cursor: auto;
+  }
+
+  .team-hover-tooltip {
+    display: none !important;
+  }
+
+  .team-mobile-details-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(78, 215, 241, 0.4);
+    padding: 2.5vw 3vw;
+    border-radius: 2vw;
+    margin-top: 2vw;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .team-mobile-details-card .team-tooltip-role {
+    font-size: 2.5vw;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 700;
+    color: #4ED7F1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .team-mobile-details-card .team-tooltip-name {
+    font-size: 3.5vw;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-top: 0.5vw;
+  }
+
+  .team-members-strip {
+    padding: 0.6vh 8vw;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+  }
+
+  .team-strip-item {
+    font-size: 3vw;
   }
 }

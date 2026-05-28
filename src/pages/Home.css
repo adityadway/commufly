@@ -43,7 +43,7 @@
   /* 50% outside, 50% inside */
   background-color: #4ED7F1;
   color: black;
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.6vw, 1.2vw, 1vw);
   font-weight: bolder;
   letter-spacing: 0.1em;
@@ -64,7 +64,7 @@
 }
 
 .projects-subheading {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(1vw, 2vw, 1.6vw);
   font-weight: 800;
   color: #ffffff;
@@ -82,7 +82,7 @@
 }
 
 .projects-heading {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.8vw, 5vw, 4vw);
   font-weight: 700;
   color: #ffffff;
@@ -169,7 +169,7 @@
 }
 
 .project-hover-desc {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 400;
   color: #ffffff;
@@ -197,7 +197,7 @@
 
 
 .project-card-num {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 1.6vw;
   font-weight: 700;
   color: #4ED7F1;
@@ -205,7 +205,7 @@
 }
 
 .project-card-title {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.8vw, 1.8vw, 1.4vw);
   font-weight: 700;
   color: #ffffff;
@@ -216,7 +216,7 @@
 }
 
 .project-card-category {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.5vw, 1vw, 0.8vw);
   /* Slightly larger */
   font-weight: 700;
@@ -243,7 +243,7 @@
 }
 
 .services-heading {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.8vw, 5vw, 4vw);
   /* Responsive but large */
   font-weight: 700;
@@ -271,7 +271,7 @@
 }
 
 .strip-item {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.5vw, 1.5vw, 1.2vw);
   font-weight: bolder;
   color: #000000;
@@ -318,14 +318,14 @@
 }
 
 .service-num {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 700;
   color: #000000;
 }
 
 .service-title {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: clamp(0.8vw, 2vw, 1.6vw);
   font-weight: 600;
   color: #000000;
@@ -414,7 +414,7 @@
 }
 
 .home-cta-description {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 2vw;
   font-weight: 800;
   color: black;
@@ -432,7 +432,7 @@
 }
 
 .home-cta-btn {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 1.5vw;
   font-weight: 700;
   color: white;

@@ -3,7 +3,6 @@ import './BouncingLogos.css';
 
 import logo1 from '../assets/images/logo/Frame 1.png';
 import logo2 from '../assets/images/logo/Google-Antigravity-Icon-Full-Color.png';
-import logo3 from '../assets/images/logo/g.webp';
 import logo4 from '../assets/images/logo/icons8-framer-logo-24.png';
 import logo5 from '../assets/images/logo/icons8-instagram-logo-94.png';
 import logo6 from '../assets/images/logo/icons8-meta-94.png';
@@ -11,7 +10,7 @@ import logo7 from '../assets/images/logo/icons8-react-80.png';
 import logo8 from '../assets/images/logo/illustrator.png';
 import logo9 from '../assets/images/logo/search.png';
 
-const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9];
+const logos = [logo1, logo2, logo4, logo5, logo6, logo7, logo8, logo9];
 
 interface LogoItem {
   id: number;

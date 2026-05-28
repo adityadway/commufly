@@ -53,7 +53,7 @@
 }
 
 .footer-form-heading {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.6vw;
     font-weight: 700;
     color: white;
@@ -63,7 +63,7 @@
 
 /* Common form input style (similar to footer-nav-link) */
 .footer-form-input {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.44vw;
     font-weight: 400;
     color: white;
@@ -110,7 +110,7 @@
 }
 
 .footer-country-code {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.44vw;
     color: #717171;
 }
@@ -163,14 +163,14 @@
 }
 
 .footer-country-code-list {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.28vw;
     color: white;
     min-width: 40px;
 }
 
 .footer-country-name {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.28vw;
     color: #717171;
 }
@@ -228,7 +228,7 @@
 }
 
 .footer-sitemap-link {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.6vw;
     color: white;
     text-decoration: none;
@@ -285,7 +285,7 @@
 
 /* Underlined nav links */
 .footer-nav-link {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 1.6vw;
     font-weight: 400;
     color: white;
@@ -331,7 +331,7 @@
 }
 
 .footer-cta-bold {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-weight: 700;
     font-size: 4.8vw;
     color: white;
@@ -340,7 +340,7 @@
 }
 
 .footer-cta-normal {
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-weight: 400;
     font-size: 3.2vw;
     color: white;
@@ -469,7 +469,7 @@
     font-weight: 800;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Share Tech', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 0.96vw;
     color: white;
     white-space: nowrap;

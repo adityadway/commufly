@@ -1,17 +1,165 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProjectHeader from '../components/ProjectHeader';
 import arrowIcon from '../assets/images/arrow.svg';
 import arrowHomeIcon from '../assets/images/Arrow home.svg';
-import aboutImage from '../assets/images/stack/card 2.webp';
-import aboutImage2 from '../assets/images/stack/card 3.webp';
+import aboutImage from '../assets/images/about us.png';
+import aboutImage2 from '../assets/images/vision.png';
 import collageImg1 from '../assets/images/stack/card 4.webp';
 import collageImg2 from '../assets/images/stack/card 5.webp';
 import collageImg3 from '../assets/images/stack/card 6.webp';
 import collageImg4 from '../assets/images/stack/card 7.webp';
 import collageImg5 from '../assets/images/stack/card 8.webp';
 import collageImg6 from '../assets/images/stack/card 9.webp';
+import teamImg1 from '../assets/images/Team/Aditya Dave - Full-stack Engineer.png';
+import teamImg2 from '../assets/images/Team/Divyam Dave - AI Automation.png';
+import teamImg3 from '../assets/images/Team/Divynshi Verma -  Managment .png';
+import teamImg4 from '../assets/images/Team/Kuldeep Singh - UI:UX Graphic.png';
+import teamImg5 from '../assets/images/Team/Kunal Sharma - Core Developer.png';
+import teamImg6 from '../assets/images/Team/Ritika Sharma - Data Analyst.png';
 import './AboutPage.css';
+
+interface FlipDigitProps {
+  digit: string;
+}
+
+const FlipDigit: React.FC<FlipDigitProps> = ({ digit }) => {
+  const [displayDigit, setDisplayDigit] = useState(digit);
+  const [animationClass, setAnimationClass] = useState('');
+
+  useEffect(() => {
+    if (digit !== displayDigit) {
+      setAnimationClass('flip-active');
+      const timeout = setTimeout(() => {
+        setDisplayDigit(digit);
+        setAnimationClass('');
+      }, 350); // duration of the flip animation
+      return () => clearTimeout(timeout);
+    }
+  }, [digit, displayDigit]);
+
+  return (
+    <span className="flip-digit-wrapper">
+      <span className={`flip-digit-card ${animationClass}`}>
+        <span className="flip-card-face flip-card-front">{displayDigit}</span>
+        <span className="flip-card-face flip-card-back">{digit}</span>
+      </span>
+    </span>
+  );
+};
+
+interface FlipCounterProps {
+  target: number;
+  suffix?: string;
+  duration?: number;
+}
+
+const FlipCounter: React.FC<FlipCounterProps> = ({ target, suffix = '', duration = 2000 }) => {
+  const [currentVal, setCurrentVal] = useState(0);
+  const elementRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let startTimestamp: number | null = null;
+          const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easeProgress = progress * (2 - progress); // easeOutQuad
+            setCurrentVal(Math.floor(easeProgress * target));
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              setCurrentVal(target);
+            }
+          };
+          window.requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  const digitStrings = currentVal.toString().split('');
+
+  return (
+    <span ref={elementRef} className="flip-counter-container">
+      {digitStrings.map((d, idx) => (
+        <FlipDigit key={idx} digit={d} />
+      ))}
+      {suffix && <span className="flip-counter-suffix">{suffix}</span>}
+    </span>
+  );
+};
+
+interface TeamMemberCardProps {
+  imgSrc: string;
+  name: string;
+  role: string;
+}
+
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ imgSrc, name, role }) => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = e.currentTarget.querySelector('.team-image-container');
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      setIsHovered(true);
+    }
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="about-collage-item team-card-interactive"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+    >
+      <div className="team-image-container">
+        <img src={imgSrc} alt={name} className="about-collage-img" />
+        {isHovered && (
+          <div
+            className="team-hover-tooltip"
+            style={{
+              left: `${mousePos.x}px`,
+              top: `${mousePos.y}px`,
+            }}
+          >
+            <div className="team-tooltip-role">{role}</div>
+            <div className="team-tooltip-name">{name}</div>
+          </div>
+        )}
+      </div>
+
+      <div className="team-mobile-details-card">
+        <div className="team-tooltip-role">{role}</div>
+        <div className="team-tooltip-name">{name}</div>
+      </div>
+    </div>
+  );
+};
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
@@ -46,7 +194,6 @@ const AboutPage: React.FC = () => {
           </div>
           <div className="about-desc-section">
             <div className="about-desc-content">
-              <div className="about-team-strip">TAP ON TEAM MEMBER</div>
               <h2 className="about-desc-title">OUR VISION</h2>
               <h3 className="about-desc-subtitle">Looking Forward</h3>
               <p className="about-desc-text">
@@ -57,55 +204,55 @@ const AboutPage: React.FC = () => {
         </div>
 
         <div className="about-split-layout about-metrics-bar">
-          <div style={{ flex: 1, width: '100%', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '1vw' }}>
-            <div className="about-metric-number">50+</div>
+          <div className="about-metric-item">
+            <div className="about-metric-number">
+              <FlipCounter target={50} suffix="+" />
+            </div>
             <div className="about-metric-label">
-              <div style={{ display: 'block' }}>Clients</div>
-              <div style={{ display: 'block' }}>Delivered</div>
+              <div>Clients</div>
+              <div>Delivered</div>
             </div>
           </div>
           <div className="about-metrics-divider"></div>
-          <div style={{ flex: 1, width: '100%', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '1vw' }}>
-            <div className="about-metric-number">2x</div>
+          <div className="about-metric-item">
+            <div className="about-metric-number">
+              <FlipCounter target={2} suffix="x" />
+            </div>
             <div className="about-metric-label">
-              <div style={{ display: 'block' }}>Awwwards</div>
-              <div style={{ display: 'block' }}>Winner</div>
+              <div>Awwwards</div>
+              <div>Winner</div>
             </div>
           </div>
           <div className="about-metrics-divider"></div>
-          <div style={{ flex: 1, width: '100%', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '1vw' }}>
+          <div className="about-metric-item">
             <div className="about-metric-number">AI</div>
             <div className="about-metric-label">
-              <div style={{ display: 'block' }}>Driven</div>
-              <div style={{ display: 'block' }}>Automation</div>
+              <div>Driven</div>
+              <div>Automation</div>
             </div>
           </div>
         </div>
+      </main>
+      <div className="team-members-strip">
+        <span className="team-strip-item">TEAM MEMBER</span>
+        <span className="team-strip-item">TEAM MEMBER</span>
+        <span className="team-strip-item">TEAM MEMBER</span>
+        <span className="team-strip-item">TEAM MEMBER</span>
+      </div>
 
+      <main className="about-page-content about-page-content-bottom" style={{ paddingTop: 0, gap: '2vh' }}>
         <div className="about-split-layout about-collage-container">
           {/* Row 1: 3 columns */}
           <div className="about-collage-row">
-            <div className="about-collage-item">
-              <img src={collageImg1} alt="collage" className="about-collage-img" />
-            </div>
-            <div className="about-collage-item">
-              <img src={collageImg2} alt="collage" className="about-collage-img" />
-            </div>
-            <div className="about-collage-item">
-              <img src={collageImg3} alt="collage" className="about-collage-img" />
-            </div>
+            <TeamMemberCard imgSrc={teamImg1} name="Aditya Dave" role="Full-stack Engineer" />
+            <TeamMemberCard imgSrc={teamImg2} name="Divyam Dave" role="AI Automation" />
+            <TeamMemberCard imgSrc={teamImg3} name="Divynshi Verma" role="Management" />
           </div>
-          {/* Row 2: 3 columns (now 6 images total) */}
+          {/* Row 2: 3 columns */}
           <div className="about-collage-row">
-            <div className="about-collage-item">
-              <img src={collageImg4} alt="collage" className="about-collage-img" />
-            </div>
-            <div className="about-collage-item">
-              <img src={collageImg5} alt="collage" className="about-collage-img" />
-            </div>
-            <div className="about-collage-item">
-              <img src={collageImg6} alt="collage" className="about-collage-img" />
-            </div>
+            <TeamMemberCard imgSrc={teamImg4} name="Kuldeep Singh" role="UI/UX Graphic" />
+            <TeamMemberCard imgSrc={teamImg5} name="Kunal Sharma" role="Core Developer" />
+            <TeamMemberCard imgSrc={teamImg6} name="Ritika Sharma" role="Data Analyst" />
           </div>
         </div>
 
