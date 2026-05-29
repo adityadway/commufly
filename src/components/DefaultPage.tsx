@@ -23,9 +23,22 @@ const DefaultPage: React.FC<DefaultPageProps> = ({ type, title }) => {
     switch (type) {
       case '404':
         return (
-          <div className="dp-404-container">
+          <div className="dp-404-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2vh' }}>
             <h1 className="dp-404-text">404</h1>
-            <p className="dp-404-sub">Page not found</p>
+            <p className="dp-404-sub" style={{ margin: 0 }}>Page Not Found</p>
+            <p style={{ color: '#94a3b8', fontSize: 'clamp(14px, 1.2vw, 20px)', fontFamily: 'Saira Condensed', textAlign: 'center', maxWidth: '450px', margin: '1vh 0' }}>
+              The page you are looking for doesn't exist or has been moved. Let's get you back home safely.
+            </p>
+            <button 
+              className="project-action-btn" 
+              onClick={() => navigate('/')}
+              style={{ marginTop: '2vh' }}
+            >
+              <span>GO BACK HOME</span>
+              <div className="project-action-icon-circle">
+                <img src={arrowHomeIcon} alt="arrow home" className="project-action-arrow" style={{ filter: 'brightness(0)' }} />
+              </div>
+            </button>
           </div>
         );
       case 'career':
