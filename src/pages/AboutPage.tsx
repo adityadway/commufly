@@ -9,7 +9,7 @@ import aboutImage2 from '../assets/images/vision.png';
 import teamImg1 from '../assets/images/Team/Aditya Dave - Full-stack Engineer.png';
 import teamImg2 from '../assets/images/Team/Divyam Dave - AI Automation.png';
 import teamImg3 from '../assets/images/Team/Divynshi Verma -  Managment .png';
-import teamImg4 from '../assets/images/Team/Kuldeep Singh - UI:UX Graphic.png';
+import teamImg4 from '../assets/images/Team/Kuldeep Singh - UI-UX Graphic.png';
 import teamImg5 from '../assets/images/Team/Kunal Sharma - Core Developer.png';
 import teamImg6 from '../assets/images/Team/Ritika Sharma - Data Analyst.png';
 import './AboutPage.css';
