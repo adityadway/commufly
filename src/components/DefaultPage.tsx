@@ -72,22 +72,22 @@ const DefaultPage: React.FC<DefaultPageProps> = ({ type, title }) => {
 
   return (
     <div className="dp-wrapper">
-      {/* Absolute Home Escape Router mimicking ProjectsPage structure */}
-      <button 
-        className="project-action-btn project-home-btn" 
-        onClick={() => navigate('/')}
-        style={{ position: 'absolute', top: '4vh', left: '4vw', zIndex: 10 }}
-      >
-        <div className="project-action-icon-circle">
-          <img src={arrowHomeIcon} alt="arrow home" className="project-action-arrow" />
-        </div>
-        <span>HOME</span>
-      </button>
-
       {/* Absolute Background Asterisk */}
       <img src={asteriskImage} alt="Background Watermark" className="dp-bg-asterisk" />
       
       <div className="dp-content-layer">
+        {/* Home Escape Router in normal flow to prevent overlap */}
+        <button 
+          className="project-action-btn project-home-btn" 
+          onClick={() => navigate('/')}
+          style={{ alignSelf: 'flex-start', marginBottom: '1vh' }}
+        >
+          <div className="project-action-icon-circle">
+            <img src={arrowHomeIcon} alt="arrow home" className="project-action-arrow" />
+          </div>
+          <span>HOME</span>
+        </button>
+
         <div className="dp-header-row">
           <h2 className="dp-main-title">{title}</h2>
           <div className="dp-line-bar"></div>

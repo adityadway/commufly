@@ -61,6 +61,8 @@ const CountrySelect: React.FC = () => {
 };
 
 const Footer: React.FC = () => {
+  const [service, setService] = React.useState('');
+
   return (
     <div className="footer-container" id="footer-section">
       {/* Top two-column row */}
@@ -122,7 +124,11 @@ const Footer: React.FC = () => {
 
           {/* Row 6: Service Dropdown */}
           <div className="footer-form-select-wrapper">
-            <select className="footer-form-input footer-form-select" defaultValue="">
+            <select 
+              className={`footer-form-input footer-form-select ${service ? 'has-value' : ''}`}
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+            >
               <option value="" disabled>Select Service</option>
               <option value="web">Web Development</option>
               <option value="design">UI/UX Design</option>

@@ -16,7 +16,8 @@
 
 .project-split-layout {
   width: 100%;
-  height: 70vh;
+  min-height: 70vh;
+  height: auto;
   display: flex;
   flex-direction: row;
   border-radius: 3vw;
@@ -206,9 +207,6 @@
   margin: 0;
   line-height: 1.2;
   text-align: justify;
-  /* Aligns text to both left and right edges */
-  text-align-last: justify;
-  /* Ensures even the last line aligns flush if desired, though standard justify looks better usually. We'll stick to standard first. */
 }
 
 .projects-final-border {
