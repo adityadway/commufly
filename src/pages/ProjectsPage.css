@@ -341,7 +341,8 @@
 
   .project-split-layout {
     flex-direction: column;
-    /* Height remains 70vh */
+    height: 70vh;
+    min-height: 70vh;
   }
 
   .project-image-section {
@@ -354,7 +355,15 @@
 
   .project-image-block {
     border-radius: 5vw 5vw 0 0;
-    --r: 6vw; /* Enlarged punch hole safely mirroring the new massive button! */
+    --r: 6vw;
+    -webkit-mask:
+      radial-gradient(circle at 0% 100%, transparent var(--r), black calc(var(--r) + 1px)),
+      radial-gradient(circle at 100% 100%, transparent var(--r), black calc(var(--r) + 1px));
+    -webkit-mask-composite: source-in;
+    mask:
+      radial-gradient(circle at 0% 100%, transparent var(--r), black calc(var(--r) + 1px)),
+      radial-gradient(circle at 100% 100%, transparent var(--r), black calc(var(--r) + 1px));
+    mask-composite: intersect;
   }
 
   .project-desc-section {
@@ -376,15 +385,27 @@
     width: 6vw;
   }
 
-  /* Restore intended coordinates, screen-edge trimming is cured natively by the 8vw downscale fitting inside 5vw screen padding */
+  /* Position navigation buttons exactly at the left and right centers of the card height */
   .btn-left {
     left: 0;
-    top: 40%;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn-left:hover {
+    transform: translate(-50%, -50%) scale(1.05);
   }
 
   .btn-right {
     left: 100%;
-    top: 10%;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn-right:hover {
+    transform: translate(-50%, -50%) scale(1.05);
   }
 
   .project-desc-title {

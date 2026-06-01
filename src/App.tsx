@@ -31,7 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {showFooter && (
         <>
           {/* Spacer to allow scrolling past the shutter and interacting with the fixed footer */}
-          <div style={{ height: '100vh' }}></div>
+          <div className="footer-scroll-spacer" style={{ height: '100vh' }}></div>
           {/* Reveal Layer (Fixed behind everything) */}
           <Footer />
         </>

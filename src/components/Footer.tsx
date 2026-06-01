@@ -77,9 +77,21 @@ const Footer: React.FC = () => {
         </div>
         {/* Column 2: nav links */}
         <div className="footer-col footer-col-right">
-          {['lorem ipsum adi adi', 'Services is good till its free', 'Our Work is good ', 'Contact and do nothing', 'Blogger eat food'].map((label) => (
-            <a href="#" className="footer-nav-link" key={label}>
-              <span>{label}</span>
+          {[
+            { label: 'From UI/UX to AX: Designing for Intelligent Experiences in the AI Era', href: 'https://medium.com/@adityadway/from-ui-ux-to-ax-designing-for-intelligent-experiences-in-the-ai-era-056bba19d70a' },
+            { label: 'UI Design Direction 2026–2027', href: 'https://medium.com/@michalmalewicz/ui-design-direction-2026-2027-2b4b6eb88336' },
+            { label: 'Why I Think AI Websites Are Making Business Promotion Easier', href: 'https://medium.com/tales-untold/why-i-think-ai-websites-are-making-business-promotion-easier-254c9fd27c84' },
+            { label: 'Why User Experience (UX) Matters in Website Design', href: 'https://medium.com/thehanomatimes/why-user-experience-ux-matters-in-website-design-38747245024a' },
+            { label: 'Real designers don’t care about AI', href: 'https://medium.com/@melkoh/real-designers-dont-care-about-ai-93ff5fa11c05' }
+          ].map((item) => (
+            <a 
+              href={item.href} 
+              className="footer-nav-link" 
+              key={item.label}
+              target={item.href.startsWith('http') ? "_blank" : undefined}
+              rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
+            >
+              <span>{item.label}</span>
               <img src={arrowIcon} alt="arrow" className="footer-nav-arrow" />
             </a>
           ))}
@@ -89,26 +101,37 @@ const Footer: React.FC = () => {
       {/* Second row: form (left) + nav links (right) */}
       <div className="footer-row-2">
         {/* Column 1: Client Intake Form */}
-        <div className="footer-col footer-col-left-form">
+        {/* Column 1: Client Intake Form */}
+        <form 
+          id="footer-client-form"
+          className="footer-col footer-col-left-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const data = Object.fromEntries(formData.entries());
+            alert(`Thanks for reaching out, ${data.name || 'there'}! We'll get back to you soon.`);
+          }}
+        >
           {/* Row 1: Heading */}
           <div className="footer-form-heading-row">
             <h3 className="footer-form-heading">CLIENT INTAKE</h3>
           </div>
 
           {/* Row 2: Name */}
-          <input type="text" className="footer-form-input" placeholder="Your Name" />
+          <input type="text" name="name" className="footer-form-input" placeholder="Your Name" required />
 
           {/* Row 3: Organization */}
-          <input type="text" className="footer-form-input" placeholder="Your Organization Name" />
+          <input type="text" name="organization" className="footer-form-input" placeholder="Your Organization Name" />
 
           {/* Row 4: Email */}
-          <input type="email" className="footer-form-input" placeholder="Your Email" />
+          <input type="email" name="email" className="footer-form-input" placeholder="Your Email" required />
 
           {/* Row 5: Phone with Custom Flag Dropdown */}
           <div className="footer-form-phone-row">
             <CountrySelect />
             <input
               type="tel"
+              name="phone"
               className="footer-form-input footer-form-phone-input"
               placeholder="00000 00000"
               maxLength={11}
@@ -125,9 +148,11 @@ const Footer: React.FC = () => {
           {/* Row 6: Service Dropdown */}
           <div className="footer-form-select-wrapper">
             <select 
+              name="service"
               className={`footer-form-input footer-form-select ${service ? 'has-value' : ''}`}
               value={service}
               onChange={(e) => setService(e.target.value)}
+              required
             >
               <option value="" disabled>Select Service</option>
               <option value="web">Web Development</option>
@@ -138,7 +163,7 @@ const Footer: React.FC = () => {
               <path d="M6 9L12 15L18 9" stroke="#717171" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-        </div>
+        </form>
         <div className="footer-row-2-right">
           <Link to="/projects" className="footer-sitemap-link footer-sitemap-bold" onClick={() => window.scrollTo(0,0)}>WORK</Link>
           <Link to="/about" className="footer-sitemap-link footer-sitemap-bold" onClick={() => window.scrollTo(0,0)}>ABOUT</Link>
@@ -160,7 +185,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="footer-submit-wrapper">
-        <button className="footer-submit-btn">
+        <button type="submit" form="footer-client-form" className="footer-submit-btn">
           <span>Let's Talk</span>
           <div className="footer-submit-icon-circle">
             <img src={arrowIcon} alt="arrow" className="footer-submit-arrow" />
