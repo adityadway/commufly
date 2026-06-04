@@ -16,8 +16,7 @@
 
 .project-split-layout {
   width: 100%;
-  min-height: 70vh;
-  height: auto;
+  height: 70vh; /* Fixed height to prevent layout sizing changes across different images */
   display: flex;
   flex-direction: row;
   border-radius: 3vw;

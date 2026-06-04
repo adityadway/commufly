@@ -197,4 +197,47 @@
     padding: 1.5vh 4vw;
     width: 100%;
   }
+  .dp-legal-list {
+    padding-left: 4vw;
+  }
+  .dp-legal-list li {
+    font-size: 4vw;
+    padding-left: 4vw;
+  }
+  .dp-legal-date {
+    font-size: 4.5vw;
+  }
 }
+
+/* Custom list styling for legal pages */
+.dp-legal-list {
+  list-style-type: none;
+  padding-left: 1.5vw;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.dp-legal-list li {
+  font-size: 1.25vw;
+  color: #caced5;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 1.5vw;
+}
+
+.dp-legal-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #4ED7F1;
+}
+
+.dp-legal-date {
+  font-family: 'Share Tech', sans-serif;
+  color: #4ED7F1;
+  font-size: 1.2vw;
+  margin: 0 0 1vh 0;
+}
+
