@@ -53,6 +53,9 @@ const HeroScroll: React.FC<HeroScrollProps> = ({ direction = 'right', images, cl
   );
 };
 
+import AsteriskProjectsSection from '../components/AsteriskProjectsSection';
+import asteriskImg from '../assets/images/Asterisk-PNG-Free-Image.png';
+
 const Home: React.FC = () => {
   const set1 = [card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11];
   const set2 = [card12, card13, card14, card15, card16, card17, card18, card19, card20, card21, card22];
@@ -88,7 +91,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* ── PROJECT SECTION ── */}
+      {/* ── PROJECT SECTION (Commented Out) ──
       <div className="projects-section" id="projects">
         <div className="explore-badge">EXPLORE</div>
         <div className="projects-header">
@@ -151,6 +154,20 @@ const Home: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+      ── END PROJECT SECTION ── */}
+
+      {/* Render the 3D Asterisk and Scrubbing Gallery */}
+      <AsteriskProjectsSection />
+
+      <div className="scroll-image-section">
+        <div className="scroll-image-text">
+          <span className="scroll-image-title-top">Invent</span>
+          <span className="scroll-image-title-bottom">
+            Beyond Tomorrow
+            <img src={asteriskImg} alt="Asterisk" className="scroll-image-asterisk" />
+          </span>
         </div>
       </div>
 

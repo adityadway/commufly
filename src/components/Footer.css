@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+.footer-scroll-spacer {
+    height: 100dvh;
+}
+
 .footer-container {
     width: 100vw;
     height: 100vh;
@@ -9,7 +13,7 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-    overflow-y: auto;
+    overflow: hidden;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -26,25 +30,33 @@
     flex-shrink: 0;
 }
 
-/* Grain effect local to the footer */
-.footer-container::after {
-    content: "";
-    position: absolute;
-    top: -10vw;
-    left: -10vw;
-    width: calc(100% + 20vw);
-    height: calc(100% + 20vw);
+.footer-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
+    background-size: 180px;
     opacity: 0.12;
     pointer-events: none;
-    z-index: 2;
-    animation: noise 1s steps(2) infinite;
+    z-index: 99;
+    animation: footer-noise-bg 0.5s steps(4) infinite;
+}
+
+@keyframes footer-noise-bg {
+    0% { background-position: 0px 0px; }
+    25% { background-position: 20px -30px; }
+    50% { background-position: -40px 50px; }
+    75% { background-position: 50px 20px; }
+    100% { background-position: -20px -40px; }
 }
 
 /* Second row: red + yellow */
 .footer-row-2 {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     position: relative;
     z-index: 10;
@@ -485,10 +497,10 @@
 .footer-submit-btn::after {
     content: "";
     position: absolute;
-    top: -8vw;
-    left: -8vw;
-    width: calc(100% + 16vw);
-    height: calc(100% + 16vw);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png");
     opacity: 0.15;
     pointer-events: none;
@@ -504,33 +516,41 @@
 
 /* Wrapper that clips to top 50% of the asterisk image */
 .footer-asterisk-wrapper {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
     width: 60vw;
-    height: 30vw;
-    /* half of image height → shows top 50% only */
+    height: 36vw;
+    /* shows top 60% of the image */
     overflow: hidden;
+    pointer-events: none;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    mix-blend-mode: screen;
 }
 
 /* Asterisk image */
 .footer-asterisk-img {
-    width: 60vw;
+    width: 100%;
     height: auto;
     display: block;
     opacity: 10%;
+    mix-blend-mode: screen;
 }
 
 /* Bottom accent line */
 .footer-bottom-line {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 1vh;
     background-color: #4ED7F1;
+    z-index: 100;
 }
 
 /* Centered copyright text */
@@ -541,7 +561,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 1.5vh 0 2.5vh 0;
+    padding: 0.5vh 0 1vh 0;
     margin-top: auto;
     z-index: 10;
     flex-shrink: 0;
@@ -776,49 +796,69 @@
     }
 }
 
+@media (max-height: 800px) and (min-width: 769px) {
+    .footer-container {
+        overflow-y: auto;
+    }
+}
+
 /* Mobile Adjustments for Footer Bottom Elements */
 @media (max-width: 768px) {
-    /* Keep the scroll spacer — footer IS fixed on mobile for the reveal effect */
+    .footer-scroll-spacer {
+        display: none !important;
+    }
 
     /* Footer stays fixed for reveal effect, but scrollable inside */
     .footer-container {
-        height: 100vh;
-        overflow-y: auto;
-        overflow-x: hidden;
-        position: fixed;
-        -webkit-overflow-scrolling: touch;
+        height: auto;
+        overflow: visible;
+        position: relative;
+        z-index: 2;
     }
 
     .footer-asterisk-wrapper {
+        position: absolute;
         width: 120vw;
-        height: 60vw;
-    }
-
-    .footer-asterisk-img {
-        width: 120vw;
+        height: 72vw;
+        bottom: 0;
     }
 
     .footer-bottom-bar {
-        flex-direction: column;
-        gap: 2vh;
-        padding: 3vh 0 4vh 0;
-        margin-top: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 0 0.5vh 0;
+        margin-top: 0;
+        width: 100%;
+        position: relative;
     }
 
     .footer-copyright {
         font-size: 3.5vw;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 2vh;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
     }
 
     .footer-social-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.5vh;
         position: relative;
         right: auto;
-        gap: 4vw;
-        flex-direction: row;
+        margin-bottom: 2vh;
+        margin-left: auto;
     }
 
     .footer-social-icons img {
-        width: 5.5vw;
-        height: 5.5vw;
+        width: 6vw;
+        height: 6vw;
     }
 
     .footer-submit-wrapper {
@@ -826,25 +866,13 @@
     }
 
     .footer-submit-container {
-        flex-direction: column;
-        gap: 2.5vh;
         width: 100%;
-        align-items: center;
+        display: flex;
+        justify-content: center;
     }
 
     .footer-hover-strip {
-        position: relative;
-        left: auto;
-        margin-left: 0;
-        opacity: 1;
-        pointer-events: auto;
-        transform: none;
-        padding: 2vw 4vw;
-        border-radius: 3vw;
-        background: #4ED7F1;
-        border: none;
-        white-space: normal;
-        text-align: center;
+        display: none;
     }
 
     .footer-hover-strip-text {

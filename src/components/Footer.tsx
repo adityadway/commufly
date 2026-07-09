@@ -182,21 +182,21 @@ const Footer: React.FC = () => {
             <Link to="/terms" className="footer-sitemap-link" onClick={() => window.scrollTo(0,0)}>Terms & Conditions</Link>
             <Link to="/privacy" className="footer-sitemap-link" onClick={() => window.scrollTo(0,0)}>Privacy Policy</Link>
           </div>
-        </div>
-      </div>
 
-      <div className="footer-submit-wrapper">
-        <div className="footer-submit-container">
-          <button type="submit" form="footer-client-form" className="footer-submit-btn">
-            <span>Let's Talk</span>
-            <div className="footer-submit-icon-circle">
-              <img src={arrowIcon} alt="arrow" className="footer-submit-arrow" />
+          <div className="footer-submit-wrapper">
+            <div className="footer-submit-container">
+              <button type="submit" form="footer-client-form" className="footer-submit-btn">
+                <span>Let's Talk</span>
+                <div className="footer-submit-icon-circle">
+                  <img src={arrowIcon} alt="arrow" className="footer-submit-arrow" />
+                </div>
+              </button>
+              <div className="footer-hover-strip">
+                <span className="footer-hover-strip-text">
+                  Want a personalized response or a quick talk? Call us: <strong className="footer-strip-highlight">+91 86193 32735</strong>
+                </span>
+              </div>
             </div>
-          </button>
-          <div className="footer-hover-strip">
-            <span className="footer-hover-strip-text">
-              Want a personalized response or a quick talk? Call us: <strong className="footer-strip-highlight">+91 86193 32735</strong>
-            </span>
           </div>
         </div>
       </div>
