@@ -843,7 +843,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-end;
-        padding: 0.5vh 0 1vh 0;
+        padding: 0.5vh 0 3vh 0;
         margin-top: auto;
         width: 100%;
         position: relative;
@@ -854,7 +854,7 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 0.5vh;
+        bottom: 2.5vh;
         margin: 0;
         text-align: center;
         white-space: nowrap;
