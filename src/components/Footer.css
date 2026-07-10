@@ -918,7 +918,7 @@
     .footer-cta-row {
         flex-direction: column;
         height: auto;
-        gap: 3.5vh;
+        gap: 5.5vh;
         padding-top: 1vh;
         margin-top: 0;
     }
